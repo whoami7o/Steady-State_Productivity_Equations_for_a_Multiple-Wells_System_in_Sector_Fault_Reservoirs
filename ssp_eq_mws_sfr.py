@@ -154,6 +154,22 @@ def get_dqinv_matrix(wells_production: list[float]):
     return np.diag([1/q for q in wells_production])
 
 
+def find_q(wells_info: list[tuple], reservoir_info: list[float]) -> float and list:
+    # # find production vector [Q] in case [S] is known
+    # well properties should be : tuple(p_wf, r_i, phi_i, r_w, skin)
+    # reservoir properties should be : [p_e, r_e, PHI, h, k_r, k_z, mu, B]
+
+    pass
+
+
+def find_s(wells_info: list[tuple], reservoir_info: list[float]) -> float and list:
+    # # find production vector [S] in case [Q] is known
+    # well properties should be : tuple(p_wf, r_i, phi_i, r_w, production)
+    # reservoir properties should be : [p_e, r_e, PHI, h, k_r, k_z, mu, B]
+
+    pass
+
+
 if __name__ == '__main__':
 
     # # # test for CASE 1# # #
