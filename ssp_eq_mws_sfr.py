@@ -116,11 +116,10 @@ def get_a_ii(r_di, r_wdi, phi_i, tau) -> float:
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 
-def get_a_matrix(wells_location: list[tuple], drainage_radius, average_perm, radial_perm, vertical_perm, wellbore_r,
-                 tau):
+def get_a_matrix(wells_location: list[tuple], drainage_radius, average_perm, radial_perm, vertical_perm, tau):
 
     # # calculating [A] matrix aka influence matrix
-
+    # well_location: [(r_i, phi_i, r_wi)]
     a_matrix = []
 
     for i in range(len(wells_location)):
@@ -128,7 +127,7 @@ def get_a_matrix(wells_location: list[tuple], drainage_radius, average_perm, rad
         for j in range(len(wells_location)):
             if i == j:
                 r_di = get_r_jd(wells_location[i][0], drainage_radius, average_perm, radial_perm)
-                r_wdi = get_r_wd(wellbore_r, drainage_radius, radial_perm, vertical_perm)
+                r_wdi = get_r_wd(wells_location[i][2], drainage_radius, radial_perm, vertical_perm)
                 a = get_a_ii(r_di, r_wdi, wells_location[i][1], tau)
             else:
                 r_di = get_r_jd(wells_location[i][0], drainage_radius, average_perm, radial_perm)
@@ -161,15 +160,13 @@ def find_q(wells_info: list[tuple], reservoir_info: tuple) -> float and list:
 
     # create main vectors [wf pressure], [well coordinates], [skin], [wellbore radius]
     p_well_vec = []
-    well_location_vec = []
+    well_location_vec = []  # (r_i, phi_i, r_wi)
     skin_fac_vec = []
-    wb_radius = []
 
     for well in wells_info:
         p_well_vec.append(well[0])
-        well_location_vec.append((well[1], well[2]))
+        well_location_vec.append((well[1], well[2], well[3]))
         skin_fac_vec.append(well[4])
-        wb_radius.append(wells_info[1])
 
     # in-between calculations
     drawdown_vec = drawdown(p_well_vec, reservoir_info[0])
@@ -178,7 +175,7 @@ def find_q(wells_info: list[tuple], reservoir_info: tuple) -> float and list:
     tau_number = 180/reservoir_info[2]
 
     influence_matrix = get_a_matrix(well_location_vec, reservoir_info[1], avg_permeability, reservoir_info[-4],
-                                    reservoir_info[-3], 0.1, tau_number)
+                                    reservoir_info[-3], tau_number)
     skin_matrix = get_ds_matrix(skin_fac_vec)
 
     # final answer
@@ -197,13 +194,11 @@ def find_s(wells_info: list[tuple], reservoir_info: tuple) -> list:
     p_well_vec = []
     well_location_vec = []
     prod_vec = []
-    wb_radius = []
 
     for well in wells_info:
         p_well_vec.append(well[0])
-        well_location_vec.append((well[1], well[2]))
+        well_location_vec.append((well[1], well[2], well[3]))
         prod_vec.append(well[4])
-        wb_radius.append(wells_info[1])
 
     # in-between calculations
     drawdown_vec = drawdown(p_well_vec, reservoir_info[0])
@@ -212,7 +207,7 @@ def find_s(wells_info: list[tuple], reservoir_info: tuple) -> list:
     tau_number = 180 / reservoir_info[2]
 
     influence_matrix = get_a_matrix(well_location_vec, reservoir_info[1], avg_permeability, reservoir_info[-4],
-                                    reservoir_info[-3], 0.1, tau_number)
+                                    reservoir_info[-3], tau_number)
     dqinv_matrix = get_dqinv_matrix(prod_vec)
 
     # final answer
@@ -228,14 +223,14 @@ if __name__ == '__main__':
     # # test full-solution functions
     # (p_wf, r_i, phi_i, r_w, skin)
     well_input = [
-        (5.1, 300, 5, 0.1, 5),
-        (5.2, 400, 10, 0.1, 5),
-        (6.4, 800, 15, 0.1, 5),
-        (5.5, 1000, 20, 0.1, 5),
-        (4.8, 200, 25, 0.1, 5),
-        (8.7, 1500, 30, 0.1, 5),
-        (5.8, 600, 35, 0.1, 5),
-        (9.3, 2000, 40, 0.1, 5)
+        (5.1, 300, 5, 0.1, 5),  # well_1
+        (5.2, 400, 10, 0.1, 5),  # well_2
+        (6.4, 800, 15, 0.1, 5),  # well_3
+        (5.5, 1000, 20, 0.1, 5),  # well_4
+        (4.8, 200, 25, 0.1, 5),  # well_5
+        (8.7, 1500, 30, 0.1, 5),  # well_6
+        (5.8, 600, 35, 0.1, 5),  # well_7
+        (9.3, 2000, 40, 0.1, 5)  # well_8
     ]
     # [p_e, r_e, PHI, h, k_r, k_z, mu, B]
     reservoir_input = (18.0, 2500, 50, 20, 0.1, 0.025, 5.0, 1.25)
@@ -245,14 +240,14 @@ if __name__ == '__main__':
 
     # (p_wf, r_i, phi_i, r_w, skin)
     well_input_1 = [
-        (5.1, 300, 5, 0.1, 17.91),
-        (5.2, 400, 10, 0.1, 10.80),
-        (6.4, 800, 15, 0.1, 39.74),
-        (5.5, 1000, 20, 0.1, 39.36),
-        (4.8, 200, 25, 0.1, 12.03),
-        (8.7, 1500, 30, 0.1, 32.59),
-        (5.8, 600, 35, 0.1, 34.03),
-        (9.3, 2000, 40, 0.1, 52.45)
+        (5.1, 300, 5, 0.1, 17.91),  # well_1
+        (5.2, 400, 10, 0.1, 10.80),  # well_2
+        (6.4, 800, 15, 0.1, 39.74),  # well_3
+        (5.5, 1000, 20, 0.1, 39.36),  # well_4
+        (4.8, 200, 25, 0.1, 12.03),  # well_5
+        (8.7, 1500, 30, 0.1, 32.59),  # well_6
+        (5.8, 600, 35, 0.1, 34.03),  # well_7
+        (9.3, 2000, 40, 0.1, 52.45)  # well_8
     ]
     skin_vec = find_s(well_input_1, reservoir_input)
     print(f'S = {[round(_, 2) for _ in skin_vec]}')
