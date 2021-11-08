@@ -154,92 +154,177 @@ def get_dqinv_matrix(wells_production: list[float]):
     return np.diag([1/q for q in wells_production])
 
 
-def find_q(wells_info: list[tuple], reservoir_info: list[float]) -> float and list:
+def find_q(wells_info: list[tuple], reservoir_info: tuple) -> float and list:
     # # find production vector [Q] in case [S] is known
     # well properties should be : tuple(p_wf, r_i, phi_i, r_w, skin)
-    # reservoir properties should be : [p_e, r_e, PHI, h, k_r, k_z, mu, B]
+    # reservoir properties should be : tuple(p_e, r_e, PHI, h, k_r, k_z, mu, B)
 
-    pass
+    # create main vectors [wf pressure], [well coordinates], [skin], [wellbore radius]
+    p_well_vec = []
+    well_location_vec = []
+    skin_fac_vec = []
+    wb_radius = []
+
+    for well in wells_info:
+        p_well_vec.append(well[0])
+        well_location_vec.append((well[1], well[2]))
+        skin_fac_vec.append(well[4])
+        wb_radius.append(wells_info[1])
+
+    # in-between calculations
+    drawdown_vec = drawdown(p_well_vec, reservoir_info[0])
+    darcys_number = number(reservoir_info[4], reservoir_info[3], reservoir_info[-2], reservoir_info[-1])
+    avg_permeability = get_avg_perm(reservoir_info[-4], reservoir_info[-3])
+    tau_number = 180/reservoir_info[2]
+
+    influence_matrix = get_a_matrix(well_location_vec, reservoir_info[1], avg_permeability, reservoir_info[-4],
+                                    reservoir_info[-3], 0.1, tau_number)
+    skin_matrix = get_ds_matrix(skin_fac_vec)
+
+    # final answer
+    q_vec = darcys_number * np.matmul(np.linalg.inv(np.add(influence_matrix, skin_matrix)), drawdown_vec)
+    q_sum = sum(q_vec)
+
+    return q_sum, q_vec.tolist()
 
 
-def find_s(wells_info: list[tuple], reservoir_info: list[float]) -> float and list:
+def find_s(wells_info: list[tuple], reservoir_info: tuple) -> list:
     # # find production vector [S] in case [Q] is known
     # well properties should be : tuple(p_wf, r_i, phi_i, r_w, production)
     # reservoir properties should be : [p_e, r_e, PHI, h, k_r, k_z, mu, B]
 
-    pass
+    # create main vectors [wf pressure], [well coordinates], [Q], [wellbore radius]
+    p_well_vec = []
+    well_location_vec = []
+    prod_vec = []
+    wb_radius = []
+
+    for well in wells_info:
+        p_well_vec.append(well[0])
+        well_location_vec.append((well[1], well[2]))
+        prod_vec.append(well[4])
+        wb_radius.append(wells_info[1])
+
+    # in-between calculations
+    drawdown_vec = drawdown(p_well_vec, reservoir_info[0])
+    darcys_number = number(reservoir_info[4], reservoir_info[3], reservoir_info[-2], reservoir_info[-1])
+    avg_permeability = get_avg_perm(reservoir_info[-4], reservoir_info[-3])
+    tau_number = 180 / reservoir_info[2]
+
+    influence_matrix = get_a_matrix(well_location_vec, reservoir_info[1], avg_permeability, reservoir_info[-4],
+                                    reservoir_info[-3], 0.1, tau_number)
+    dqinv_matrix = get_dqinv_matrix(prod_vec)
+
+    # final answer
+    s = np.matmul(dqinv_matrix,
+                  np.subtract(darcys_number * np.array(drawdown_vec), np.matmul(influence_matrix, prod_vec))
+                  )
+
+    return s.tolist()
 
 
 if __name__ == '__main__':
 
+    # # test full-solution functions
+    # (p_wf, r_i, phi_i, r_w, skin)
+    well_input = [
+        (5.1, 300, 5, 0.1, 5),
+        (5.2, 400, 10, 0.1, 5),
+        (6.4, 800, 15, 0.1, 5),
+        (5.5, 1000, 20, 0.1, 5),
+        (4.8, 200, 25, 0.1, 5),
+        (8.7, 1500, 30, 0.1, 5),
+        (5.8, 600, 35, 0.1, 5),
+        (9.3, 2000, 40, 0.1, 5)
+    ]
+    # [p_e, r_e, PHI, h, k_r, k_z, mu, B]
+    reservoir_input = (18.0, 2500, 50, 20, 0.1, 0.025, 5.0, 1.25)
+
+    sum_rate, rate_vec = find_q(well_input, reservoir_input)
+    print(f'Q_sum = {sum_rate: .2f}\nQ = {[round(_, 2) for _ in rate_vec]}')
+
+    # (p_wf, r_i, phi_i, r_w, skin)
+    well_input_1 = [
+        (5.1, 300, 5, 0.1, 17.91),
+        (5.2, 400, 10, 0.1, 10.80),
+        (6.4, 800, 15, 0.1, 39.74),
+        (5.5, 1000, 20, 0.1, 39.36),
+        (4.8, 200, 25, 0.1, 12.03),
+        (8.7, 1500, 30, 0.1, 32.59),
+        (5.8, 600, 35, 0.1, 34.03),
+        (9.3, 2000, 40, 0.1, 52.45)
+    ]
+    skin_vec = find_s(well_input_1, reservoir_input)
+    print(f'S = {[round(_, 2) for _ in skin_vec]}')
+
     # # # test for CASE 1# # #
-    print('[A] + [D_s]\n',
-          np.add(
-              get_a_matrix([(300, 5), (400, 10), (800, 15), (1000, 20), (200, 25), (1500, 30), (600, 35), (2000, 40)],
-                           2500, get_avg_perm(0.1, 0.025), 0.1, 0.025, 0.1, 180 / 50),
-              get_ds_matrix([5 for _ in range(8)])), '\n'
-          )
-
-    print('([A] + [D_s])^(-1)\n',
-          np.linalg.inv(np.add(
-              get_a_matrix([(300, 5), (400, 10), (800, 15), (1000, 20), (200, 25), (1500, 30), (600, 35), (2000, 40)],
-                           2500, get_avg_perm(0.1, 0.025), 0.1, 0.025, 0.1, 180 / 50),
-              get_ds_matrix([5 for _ in range(8)]))), '\n'
-          )
-
-    print('\n')
-    print('\t\t\t# # # SKIN # # #')
-    for skin in (0, 5, 10):
-        print(f'S = {skin}', end='\t')
-        print(
-            f'Q_sum = {sum(number(0.1, 20, 5, 1.25) * np.matmul(np.linalg.inv(np.add(get_a_matrix([(300, 5), (400, 10), (800, 15), (1000, 20), (200, 25), (1500, 30), (600, 35), (2000, 40)], 2500, get_avg_perm(0.1, 0.025), 0.1, 0.025, 0.1, 180 / 50), get_ds_matrix([skin for _ in range(8)]))), np.transpose(np.array(drawdown([5.1, 5.2, 6.4, 5.5, 4.8, 8.7, 5.8, 9.3], 18.0))))): .2f}')
-
-        print('\tQ = ',
-              number(0.1, 20, 5, 1.25) * np.matmul(np.linalg.inv(np.add(get_a_matrix(
-                  [(300, 5), (400, 10), (800, 15), (1000, 20), (200, 25), (1500, 30), (600, 35), (2000, 40)], 2500,
-                  get_avg_perm(0.1, 0.025), 0.1, 0.025, 0.1, 180 / 50), get_ds_matrix([skin for _ in range(8)]))),
-                                                   np.transpose(np.array(
-                                                       drawdown([5.1, 5.2, 6.4, 5.5, 4.8, 8.7, 5.8, 9.3], 18.0)))), '\n'
-              )
-
-    print('\n')
-    print('\t\t\t# # # PHI # # #')
-    for phi in (60, 90, 120):
-        print(f'PHI = {phi}', end=' ')
-        print(
-            f'Q_sum = {sum(number(0.1, 20, 5, 1.25) * np.matmul(np.linalg.inv(np.add(get_a_matrix([(300, 5), (400, 10), (800, 15), (1000, 20), (200, 25), (1500, 30), (600, 35), (2000, 40)], 2500, get_avg_perm(0.1, 0.025), 0.1, 0.025, 0.1, 180 / phi), get_ds_matrix([0 for _ in range(8)]))), np.transpose(np.array(drawdown([5.1, 5.2, 6.4, 5.5, 4.8, 8.7, 5.8, 9.3], 18.0))))): .2f}')
-
-        print('\t Q = ',
-              number(0.1, 20, 5, 1.25) * np.matmul(np.linalg.inv(np.add(get_a_matrix(
-                  [(300, 5), (400, 10), (800, 15), (1000, 20), (200, 25), (1500, 30), (600, 35), (2000, 40)], 2500,
-                  get_avg_perm(0.1, 0.025), 0.1, 0.025, 0.1, 180 / phi), get_ds_matrix([0 for _ in range(8)]))),
-                                                   np.transpose(np.array(
-                                                       drawdown([5.1, 5.2, 6.4, 5.5, 4.8, 8.7, 5.8, 9.3], 18.0)))), '\n'
-              )
-
-    print('\n')
-    print('\t\t\t# # # H # # #')
-    for h in (18, 20, 22):
-        print(f'H = {h}', end='\t')
-        print(
-            f'Q_sum = {sum(number(0.1, h, 5, 1.25) * np.matmul(np.linalg.inv(np.add(get_a_matrix([(300, 5), (400, 10), (800, 15), (1000, 20), (200, 25), (1500, 30), (600, 35), (2000, 40)], 2500, get_avg_perm(0.1, 0.025), 0.1, 0.025, 0.1, 180 / 50), get_ds_matrix([0 for _ in range(8)]))), np.transpose(np.array(drawdown([5.1, 5.2, 6.4, 5.5, 4.8, 8.7, 5.8, 9.3], 18.0))))): .2f}')
-
-        print('\tQ = ',
-              number(0.1, h, 5, 1.25) * np.matmul(np.linalg.inv(np.add(get_a_matrix(
-                  [(300, 5), (400, 10), (800, 15), (1000, 20), (200, 25), (1500, 30), (600, 35), (2000, 40)], 2500,
-                  get_avg_perm(0.1, 0.025), 0.1, 0.025, 0.1, 180 / 50), get_ds_matrix([0 for _ in range(8)]))),
-                                                  np.transpose(np.array(
-                                                      drawdown([5.1, 5.2, 6.4, 5.5, 4.8, 8.7, 5.8, 9.3], 18.0)))), '\n'
-              )
-    # # # end # # #
-
-    # # # test for CASE 2 # # #
-    print('S = ',
-          np.matmul(get_dqinv_matrix([17.91, 10.80, 39.74, 39.36, 12.03, 32.59, 34.03, 52.45]), np.subtract(
-              number(0.1, 20, 5, 1.25) * np.array(drawdown([5.1, 5.2, 6.4, 5.5, 4.8, 8.7, 5.8, 9.3], 18.0)), np.matmul(
-                  get_a_matrix(
-                      [(300, 5), (400, 10), (800, 15), (1000, 20), (200, 25), (1500, 30), (600, 35), (2000, 40)], 2500,
-                      get_avg_perm(0.1, 0.025), 0.1, 0.025, 0.1, 180 / 50),
-                  np.transpose(np.array([17.91, 10.80, 39.74, 39.36, 12.03, 32.59, 34.03, 52.45])))))
-          )
-    # # # end # # #
+    # print('[A] + [D_s]\n',
+    #       np.add(
+    #           get_a_matrix([(300, 5), (400, 10), (800, 15), (1000, 20), (200, 25), (1500, 30), (600, 35), (2000, 40)],
+    #                        2500, get_avg_perm(0.1, 0.025), 0.1, 0.025, 0.1, 180 / 50),
+    #           get_ds_matrix([5 for _ in range(8)])), '\n'
+    #       )
+    #
+    # print('([A] + [D_s])^(-1)\n',
+    #       np.linalg.inv(np.add(
+    #           get_a_matrix([(300, 5), (400, 10), (800, 15), (1000, 20), (200, 25), (1500, 30), (600, 35), (2000, 40)],
+    #                        2500, get_avg_perm(0.1, 0.025), 0.1, 0.025, 0.1, 180 / 50),
+    #           get_ds_matrix([5 for _ in range(8)]))), '\n'
+    #       )
+    #
+    # print('\n')
+    # print('\t\t\t# # # SKIN # # #')
+    # for skin in (0, 5, 10):
+    #     print(f'S = {skin}', end='\t')
+    #     print(
+    #         f'Q_sum = {sum(number(0.1, 20, 5, 1.25) * np.matmul(np.linalg.inv(np.add(get_a_matrix([(300, 5), (400, 10), (800, 15), (1000, 20), (200, 25), (1500, 30), (600, 35), (2000, 40)], 2500, get_avg_perm(0.1, 0.025), 0.1, 0.025, 0.1, 180 / 50), get_ds_matrix([skin for _ in range(8)]))), np.transpose(np.array(drawdown([5.1, 5.2, 6.4, 5.5, 4.8, 8.7, 5.8, 9.3], 18.0))))): .2f}')
+    #
+    #     print('\tQ = ',
+    #           number(0.1, 20, 5, 1.25) * np.matmul(np.linalg.inv(np.add(get_a_matrix(
+    #               [(300, 5), (400, 10), (800, 15), (1000, 20), (200, 25), (1500, 30), (600, 35), (2000, 40)], 2500,
+    #               get_avg_perm(0.1, 0.025), 0.1, 0.025, 0.1, 180 / 50), get_ds_matrix([skin for _ in range(8)]))),
+    #                                                np.transpose(np.array(
+    #                                                    drawdown([5.1, 5.2, 6.4, 5.5, 4.8, 8.7, 5.8, 9.3], 18.0)))), '\n'
+    #           )
+    #
+    # print('\n')
+    # print('\t\t\t# # # PHI # # #')
+    # for phi in (60, 90, 120):
+    #     print(f'PHI = {phi}', end=' ')
+    #     print(
+    #         f'Q_sum = {sum(number(0.1, 20, 5, 1.25) * np.matmul(np.linalg.inv(np.add(get_a_matrix([(300, 5), (400, 10), (800, 15), (1000, 20), (200, 25), (1500, 30), (600, 35), (2000, 40)], 2500, get_avg_perm(0.1, 0.025), 0.1, 0.025, 0.1, 180 / phi), get_ds_matrix([0 for _ in range(8)]))), np.transpose(np.array(drawdown([5.1, 5.2, 6.4, 5.5, 4.8, 8.7, 5.8, 9.3], 18.0))))): .2f}')
+    #
+    #     print('\t Q = ',
+    #           number(0.1, 20, 5, 1.25) * np.matmul(np.linalg.inv(np.add(get_a_matrix(
+    #               [(300, 5), (400, 10), (800, 15), (1000, 20), (200, 25), (1500, 30), (600, 35), (2000, 40)], 2500,
+    #               get_avg_perm(0.1, 0.025), 0.1, 0.025, 0.1, 180 / phi), get_ds_matrix([0 for _ in range(8)]))),
+    #                                                np.transpose(np.array(
+    #                                                    drawdown([5.1, 5.2, 6.4, 5.5, 4.8, 8.7, 5.8, 9.3], 18.0)))), '\n'
+    #           )
+    #
+    # print('\n')
+    # print('\t\t\t# # # H # # #')
+    # for h in (18, 20, 22):
+    #     print(f'H = {h}', end='\t')
+    #     print(
+    #         f'Q_sum = {sum(number(0.1, h, 5, 1.25) * np.matmul(np.linalg.inv(np.add(get_a_matrix([(300, 5), (400, 10), (800, 15), (1000, 20), (200, 25), (1500, 30), (600, 35), (2000, 40)], 2500, get_avg_perm(0.1, 0.025), 0.1, 0.025, 0.1, 180 / 50), get_ds_matrix([0 for _ in range(8)]))), np.transpose(np.array(drawdown([5.1, 5.2, 6.4, 5.5, 4.8, 8.7, 5.8, 9.3], 18.0))))): .2f}')
+    #
+    #     print('\tQ = ',
+    #           number(0.1, h, 5, 1.25) * np.matmul(np.linalg.inv(np.add(get_a_matrix(
+    #               [(300, 5), (400, 10), (800, 15), (1000, 20), (200, 25), (1500, 30), (600, 35), (2000, 40)], 2500,
+    #               get_avg_perm(0.1, 0.025), 0.1, 0.025, 0.1, 180 / 50), get_ds_matrix([0 for _ in range(8)]))),
+    #                                               np.transpose(np.array(
+    #                                                   drawdown([5.1, 5.2, 6.4, 5.5, 4.8, 8.7, 5.8, 9.3], 18.0)))), '\n'
+    #           )
+    # # # # end # # #
+    #
+    # # # # test for CASE 2 # # #
+    # print('S = ',
+    #       np.matmul(get_dqinv_matrix([17.91, 10.80, 39.74, 39.36, 12.03, 32.59, 34.03, 52.45]), np.subtract(
+    #           number(0.1, 20, 5, 1.25) * np.array(drawdown([5.1, 5.2, 6.4, 5.5, 4.8, 8.7, 5.8, 9.3], 18.0)), np.matmul(
+    #               get_a_matrix(
+    #                   [(300, 5), (400, 10), (800, 15), (1000, 20), (200, 25), (1500, 30), (600, 35), (2000, 40)], 2500,
+    #                   get_avg_perm(0.1, 0.025), 0.1, 0.025, 0.1, 180 / 50),
+    #               np.transpose(np.array([17.91, 10.80, 39.74, 39.36, 12.03, 32.59, 34.03, 52.45])))))
+    #       )
+    # # # # end # # #
