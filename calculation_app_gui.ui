@@ -1,0 +1,755 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1110</width>
+    <height>586</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QScrollArea" name="scrollArea_Wells_Area">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>370</y>
+      <width>531</width>
+      <height>161</height>
+     </rect>
+    </property>
+    <property name="widgetResizable">
+     <bool>true</bool>
+    </property>
+    <widget class="QWidget" name="scrollAreaWidgetContents">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>508</width>
+       <height>263</height>
+      </rect>
+     </property>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="6" column="5">
+       <widget class="QLineEdit" name="lineEdit_Welli_Ri_14"/>
+      </item>
+      <item row="1" column="2">
+       <widget class="QLineEdit" name="lineEdit_Welli_Ri_3"/>
+      </item>
+      <item row="6" column="0">
+       <widget class="QLabel" name="label_Welli_13">
+        <property name="text">
+         <string>Well 7</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="3">
+       <widget class="QLineEdit" name="lineEdit_Welli_Phii_10"/>
+      </item>
+      <item row="3" column="5">
+       <widget class="QLineEdit" name="lineEdit_Welli_Skin_5"/>
+      </item>
+      <item row="6" column="1">
+       <widget class="QLineEdit" name="lineEdit_Welli_Pwf_12"/>
+      </item>
+      <item row="2" column="2">
+       <widget class="QLineEdit" name="lineEdit_Welli_Ri_4"/>
+      </item>
+      <item row="6" column="3">
+       <widget class="QLineEdit" name="lineEdit_Welli_Ri_16"/>
+      </item>
+      <item row="5" column="3">
+       <widget class="QLineEdit" name="lineEdit_Welli_Ri_12"/>
+      </item>
+      <item row="2" column="4">
+       <widget class="QLineEdit" name="lineEdit_Welli_Rw_4"/>
+      </item>
+      <item row="0" column="4">
+       <widget class="QLineEdit" name="lineEdit_Welli_Rw_2"/>
+      </item>
+      <item row="5" column="2">
+       <widget class="QLineEdit" name="lineEdit_Welli_Ri_11"/>
+      </item>
+      <item row="6" column="2">
+       <widget class="QLineEdit" name="lineEdit_Welli_Ri_15"/>
+      </item>
+      <item row="4" column="2">
+       <widget class="QLineEdit" name="lineEdit_Welli_Ri_10"/>
+      </item>
+      <item row="3" column="1">
+       <widget class="QLineEdit" name="lineEdit_Welli_Pwf_5"/>
+      </item>
+      <item row="6" column="4">
+       <widget class="QLineEdit" name="lineEdit_Welli_Ri_17"/>
+      </item>
+      <item row="2" column="5">
+       <widget class="QLineEdit" name="lineEdit_Welli_Skin_4"/>
+      </item>
+      <item row="1" column="5">
+       <widget class="QLineEdit" name="lineEdit_Welli_Skin_3"/>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="lineEdit_Welli_Pwf_2"/>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="lineEdit_Welli_Pwf_3"/>
+      </item>
+      <item row="5" column="0">
+       <widget class="QLabel" name="label_Welli_12">
+        <property name="text">
+         <string>Well 6</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1">
+       <widget class="QLineEdit" name="lineEdit_Welli_Pwf_10"/>
+      </item>
+      <item row="0" column="3">
+       <widget class="QLineEdit" name="lineEdit_Welli_Phii_2"/>
+      </item>
+      <item row="5" column="5">
+       <widget class="QLineEdit" name="lineEdit_Welli_Ri_18"/>
+      </item>
+      <item row="1" column="4">
+       <widget class="QLineEdit" name="lineEdit_Welli_Rw_3"/>
+      </item>
+      <item row="5" column="1">
+       <widget class="QLineEdit" name="lineEdit_Welli_Pwf_11"/>
+      </item>
+      <item row="4" column="5">
+       <widget class="QLineEdit" name="lineEdit_Welli_Skin_10"/>
+      </item>
+      <item row="0" column="0">
+       <widget class="QLabel" name="label_Welli_2">
+        <property name="text">
+         <string>Well 1</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="label_Welli_5">
+        <property name="text">
+         <string>Well 4</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="4">
+       <widget class="QLineEdit" name="lineEdit_Welli_Rw_5"/>
+      </item>
+      <item row="1" column="3">
+       <widget class="QLineEdit" name="lineEdit_Welli_Phii_3"/>
+      </item>
+      <item row="3" column="2">
+       <widget class="QLineEdit" name="lineEdit_Welli_Ri_5"/>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="label_Welli_4">
+        <property name="text">
+         <string>Well 3</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="4">
+       <widget class="QLineEdit" name="lineEdit_Welli_Ri_13"/>
+      </item>
+      <item row="0" column="2">
+       <widget class="QLineEdit" name="lineEdit_Welli_Ri_2"/>
+      </item>
+      <item row="2" column="3">
+       <widget class="QLineEdit" name="lineEdit_Welli_Phii_4"/>
+      </item>
+      <item row="4" column="0">
+       <widget class="QLabel" name="label_Welli_6">
+        <property name="text">
+         <string>Well 5</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_Welli_3">
+        <property name="text">
+         <string>Well 2</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="0">
+       <widget class="QLabel" name="label_Welli_14">
+        <property name="text">
+         <string>Well 8</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QLineEdit" name="lineEdit_Welli_Pwf_4"/>
+      </item>
+      <item row="4" column="4">
+       <widget class="QLineEdit" name="lineEdit_Welli_Rw_10"/>
+      </item>
+      <item row="0" column="5">
+       <widget class="QLineEdit" name="lineEdit_Welli_Skin_2"/>
+      </item>
+      <item row="3" column="3">
+       <widget class="QLineEdit" name="lineEdit_Welli_Phii_5"/>
+      </item>
+      <item row="7" column="1">
+       <widget class="QLineEdit" name="lineEdit_Welli_Ri_19"/>
+      </item>
+      <item row="7" column="2">
+       <widget class="QLineEdit" name="lineEdit_Welli_Pwf_13"/>
+      </item>
+      <item row="7" column="3">
+       <widget class="QLineEdit" name="lineEdit_Welli_Ri_20"/>
+      </item>
+      <item row="7" column="4">
+       <widget class="QLineEdit" name="lineEdit_Welli_Ri_21"/>
+      </item>
+      <item row="7" column="5">
+       <widget class="QLineEdit" name="lineEdit_Welli_Ri_22"/>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="horizontalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>10</y>
+      <width>741</width>
+      <height>291</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_Images">
+     <item>
+      <widget class="QLabel" name="label_Scheme">
+       <property name="frameShape">
+        <enum>QFrame::Box</enum>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap>images/scheme_img.png</pixmap>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_Unit_explanation">
+       <property name="frameShape">
+        <enum>QFrame::Box</enum>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap>images/unit_explanation.png</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>1070</x>
+      <y>370</y>
+      <width>31</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout_AddRemove_Buttons">
+     <item row="1" column="0">
+      <widget class="QPushButton" name="pushButton_RemoveWell">
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(138, 138, 138)</string>
+       </property>
+       <property name="text">
+        <string>-</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <widget class="QPushButton" name="pushButton_AddWell">
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(226, 226, 226)</string>
+       </property>
+       <property name="text">
+        <string>+</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>430</y>
+      <width>141</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout_Calculate_Buttons">
+     <item row="0" column="0">
+      <widget class="QPushButton" name="pushButton_Calculate">
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Calculate</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QPushButton" name="pushButton_SavResults">
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Save results</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>350</y>
+      <width>311</width>
+      <height>161</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout_Resv_Layer">
+     <item row="0" column="0">
+      <widget class="QLabel" name="label_resvPe">
+       <property name="font">
+        <font>
+         <weight>50</weight>
+         <bold>false</bold>
+         <underline>false</underline>
+        </font>
+       </property>
+       <property name="text">
+        <string>P_e, MPa </string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLabel" name="label__resvPHI">
+       <property name="font">
+        <font>
+         <weight>50</weight>
+         <bold>false</bold>
+         <underline>false</underline>
+        </font>
+       </property>
+       <property name="text">
+        <string>PHI, deg</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2">
+      <widget class="QLabel" name="label__resvRe">
+       <property name="font">
+        <font>
+         <weight>50</weight>
+         <bold>false</bold>
+         <underline>false</underline>
+        </font>
+       </property>
+       <property name="text">
+        <string>r_e, m </string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="3">
+      <widget class="QLabel" name="label__resvH">
+       <property name="font">
+        <font>
+         <weight>50</weight>
+         <bold>false</bold>
+         <underline>false</underline>
+        </font>
+       </property>
+       <property name="text">
+        <string>H, m</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLineEdit" name="lineEdit_resvPe">
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLineEdit" name="lineEdit_resvPHI">
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="2">
+      <widget class="QLineEdit" name="lineEdit__resvRe">
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="3">
+      <widget class="QLineEdit" name="lineEdit__resvH">
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="label__resvKr">
+       <property name="font">
+        <font>
+         <weight>50</weight>
+         <bold>false</bold>
+         <underline>false</underline>
+        </font>
+       </property>
+       <property name="text">
+        <string>K_r, m^2*e-6</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1" colspan="2">
+      <widget class="QLabel" name="label__resvKz">
+       <property name="font">
+        <font>
+         <weight>50</weight>
+         <bold>false</bold>
+         <underline>false</underline>
+        </font>
+       </property>
+       <property name="text">
+        <string>K_z, m^2*e-6</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLineEdit" name="lineEdit__resvKr">
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1" colspan="2">
+      <widget class="QLineEdit" name="lineEdit__resvKz">
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="0">
+      <widget class="QLabel" name="label_resvMu">
+       <property name="font">
+        <font>
+         <weight>50</weight>
+         <bold>false</bold>
+         <underline>false</underline>
+        </font>
+       </property>
+       <property name="text">
+        <string>mu, mPa*s</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="1" colspan="2">
+      <widget class="QLabel" name="label_resvB">
+       <property name="font">
+        <font>
+         <weight>50</weight>
+         <bold>false</bold>
+         <underline>false</underline>
+        </font>
+       </property>
+       <property name="text">
+        <string>B, m^3/m^3</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="0">
+      <widget class="QLineEdit" name="lineEdit__resvMu">
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="1" colspan="2">
+      <widget class="QLineEdit" name="lineEdit__resvB">
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>580</x>
+      <y>350</y>
+      <width>451</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QLabel" name="label_Well_Pwf">
+       <property name="text">
+        <string>P_wf, MPa</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label__Well_Ri">
+       <property name="text">
+        <string>r_i, m</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label__Well_Phii">
+       <property name="text">
+        <string>phi_i, deg</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label__Well_Rw">
+       <property name="text">
+        <string>r_w, m</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label__Well_Skin">
+       <property name="text">
+        <string>skin</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>310</y>
+      <width>851</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_Captions">
+     <item>
+      <widget class="QLabel" name="label_Reservoir">
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+         <weight>50</weight>
+         <italic>false</italic>
+         <bold>false</bold>
+         <underline>true</underline>
+        </font>
+       </property>
+       <property name="text">
+        <string>Reservoir properties</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_Well">
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+         <weight>50</weight>
+         <italic>false</italic>
+         <bold>false</bold>
+         <underline>true</underline>
+        </font>
+       </property>
+       <property name="text">
+        <string>Well's properties</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>20</y>
+      <width>71</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout_ModeChoice_Flags">
+     <item row="0" column="0">
+      <widget class="QRadioButton" name="radioButton_Q">
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Find Q</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QRadioButton" name="radioButton_S">
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Find S</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1110</width>
+     <height>26</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
