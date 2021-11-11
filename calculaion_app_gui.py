@@ -35,115 +35,115 @@ class Ui_MainWindow(object):
         self.gridLayout = QtWidgets.QGridLayout(self.scrollAreaWidgetContents)
         self.gridLayout.setObjectName("gridLayout")
         # contents
-        self.lineEdit_Welli_Ri_14 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
-        self.lineEdit_Welli_Ri_14.setObjectName("lineEdit_Welli_Ri_14")
-        self.gridLayout.addWidget(self.lineEdit_Welli_Ri_14, 6, 5, 1, 1)
+        self.lineEdit_Welli_Skin_7 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
+        self.lineEdit_Welli_Skin_7.setObjectName("lineEdit_Welli_Skin_7")
+        self.gridLayout.addWidget(self.lineEdit_Welli_Skin_7, 6, 5, 1, 1)
 
-        self.lineEdit_Welli_Ri_3 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
-        self.lineEdit_Welli_Ri_3.setObjectName("lineEdit_Welli_Ri_3")
-        self.gridLayout.addWidget(self.lineEdit_Welli_Ri_3, 1, 2, 1, 1)
+        self.lineEdit_Welli_Ri_2 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
+        self.lineEdit_Welli_Ri_2.setObjectName("lineEdit_Welli_Ri_2")
+        self.gridLayout.addWidget(self.lineEdit_Welli_Ri_2, 1, 2, 1, 1)
 
         self.label_Welli_13 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
         self.label_Welli_13.setAlignment(QtCore.Qt.AlignCenter)
         self.label_Welli_13.setObjectName("label_Welli_13")
         self.gridLayout.addWidget(self.label_Welli_13, 6, 0, 1, 1)
 
-        self.lineEdit_Welli_Phii_10 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
-        self.lineEdit_Welli_Phii_10.setObjectName("lineEdit_Welli_Phii_10")
-        self.gridLayout.addWidget(self.lineEdit_Welli_Phii_10, 4, 3, 1, 1)
-
-        self.lineEdit_Welli_Skin_5 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
-        self.lineEdit_Welli_Skin_5.setObjectName("lineEdit_Welli_Skin_5")
-        self.gridLayout.addWidget(self.lineEdit_Welli_Skin_5, 3, 5, 1, 1)
-
-        self.lineEdit_Welli_Pwf_12 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
-        self.lineEdit_Welli_Pwf_12.setObjectName("lineEdit_Welli_Pwf_12")
-        self.gridLayout.addWidget(self.lineEdit_Welli_Pwf_12, 6, 1, 1, 1)
-
-        self.lineEdit_Welli_Ri_4 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
-        self.lineEdit_Welli_Ri_4.setObjectName("lineEdit_Welli_Ri_4")
-        self.gridLayout.addWidget(self.lineEdit_Welli_Ri_4, 2, 2, 1, 1)
-
-        self.lineEdit_Welli_Ri_16 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
-        self.lineEdit_Welli_Ri_16.setObjectName("lineEdit_Welli_Ri_16")
-        self.gridLayout.addWidget(self.lineEdit_Welli_Ri_16, 6, 3, 1, 1)
-
-        self.lineEdit_Welli_Ri_12 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
-        self.lineEdit_Welli_Ri_12.setObjectName("lineEdit_Welli_Ri_12")
-        self.gridLayout.addWidget(self.lineEdit_Welli_Ri_12, 5, 3, 1, 1)
-
-        self.lineEdit_Welli_Rw_4 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
-        self.lineEdit_Welli_Rw_4.setObjectName("lineEdit_Welli_Rw_4")
-        self.gridLayout.addWidget(self.lineEdit_Welli_Rw_4, 2, 4, 1, 1)
-
-        self.lineEdit_Welli_Rw_2 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
-        self.lineEdit_Welli_Rw_2.setObjectName("lineEdit_Welli_Rw_2")
-        self.gridLayout.addWidget(self.lineEdit_Welli_Rw_2, 0, 4, 1, 1)
-
-        self.lineEdit_Welli_Ri_11 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
-        self.lineEdit_Welli_Ri_11.setObjectName("lineEdit_Welli_Ri_11")
-        self.gridLayout.addWidget(self.lineEdit_Welli_Ri_11, 5, 2, 1, 1)
-
-        self.lineEdit_Welli_Ri_15 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
-        self.lineEdit_Welli_Ri_15.setObjectName("lineEdit_Welli_Ri_15")
-        self.gridLayout.addWidget(self.lineEdit_Welli_Ri_15, 6, 2, 1, 1)
-
-        self.lineEdit_Welli_Ri_10 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
-        self.lineEdit_Welli_Ri_10.setObjectName("lineEdit_Welli_Ri_10")
-        self.gridLayout.addWidget(self.lineEdit_Welli_Ri_10, 4, 2, 1, 1)
-
-        self.lineEdit_Welli_Pwf_5 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
-        self.lineEdit_Welli_Pwf_5.setObjectName("lineEdit_Welli_Pwf_5")
-        self.gridLayout.addWidget(self.lineEdit_Welli_Pwf_5, 3, 1, 1, 1)
-
-        self.lineEdit_Welli_Ri_17 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
-        self.lineEdit_Welli_Ri_17.setObjectName("lineEdit_Welli_Ri_17")
-        self.gridLayout.addWidget(self.lineEdit_Welli_Ri_17, 6, 4, 1, 1)
+        self.lineEdit_Welli_Phii_5 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
+        self.lineEdit_Welli_Phii_5.setObjectName("lineEdit_Welli_Phii_5")
+        self.gridLayout.addWidget(self.lineEdit_Welli_Phii_5, 4, 3, 1, 1)
 
         self.lineEdit_Welli_Skin_4 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
         self.lineEdit_Welli_Skin_4.setObjectName("lineEdit_Welli_Skin_4")
-        self.gridLayout.addWidget(self.lineEdit_Welli_Skin_4, 2, 5, 1, 1)
+        self.gridLayout.addWidget(self.lineEdit_Welli_Skin_4, 3, 5, 1, 1)
+
+        self.lineEdit_Welli_Pwf_7 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
+        self.lineEdit_Welli_Pwf_7.setObjectName("lineEdit_Welli_Pwf_7")
+        self.gridLayout.addWidget(self.lineEdit_Welli_Pwf_7, 6, 1, 1, 1)
+
+        self.lineEdit_Welli_Ri_3 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
+        self.lineEdit_Welli_Ri_3.setObjectName("lineEdit_Welli_Ri_3")
+        self.gridLayout.addWidget(self.lineEdit_Welli_Ri_3, 2, 2, 1, 1)
+
+        self.lineEdit_Welli_Phii_7 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
+        self.lineEdit_Welli_Phii_7.setObjectName("lineEdit_Welli_Phii_7")
+        self.gridLayout.addWidget(self.lineEdit_Welli_Phii_7, 6, 3, 1, 1)
+
+        self.lineEdit_Welli_Phii_6 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
+        self.lineEdit_Welli_Phii_6.setObjectName("lineEdit_Welli_Phii_6")
+        self.gridLayout.addWidget(self.lineEdit_Welli_Phii_6, 5, 3, 1, 1)
+
+        self.lineEdit_Welli_Rw_3 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
+        self.lineEdit_Welli_Rw_3.setObjectName("lineEdit_Welli_Rw_3")
+        self.gridLayout.addWidget(self.lineEdit_Welli_Rw_3, 2, 4, 1, 1)
+
+        self.lineEdit_Welli_Rw_1 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
+        self.lineEdit_Welli_Rw_1.setObjectName("lineEdit_Welli_Rw_1")
+        self.gridLayout.addWidget(self.lineEdit_Welli_Rw_1, 0, 4, 1, 1)
+
+        self.lineEdit_Welli_Ri_6 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
+        self.lineEdit_Welli_Ri_6.setObjectName("lineEdit_Welli_Ri_6")
+        self.gridLayout.addWidget(self.lineEdit_Welli_Ri_6, 5, 2, 1, 1)
+
+        self.lineEdit_Welli_Ri_7 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
+        self.lineEdit_Welli_Ri_7.setObjectName("lineEdit_Welli_Ri_7")
+        self.gridLayout.addWidget(self.lineEdit_Welli_Ri_7, 6, 2, 1, 1)
+
+        self.lineEdit_Welli_Ri_5 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
+        self.lineEdit_Welli_Ri_5.setObjectName("lineEdit_Welli_Ri_5")
+        self.gridLayout.addWidget(self.lineEdit_Welli_Ri_5, 4, 2, 1, 1)
+
+        self.lineEdit_Welli_Pwf_4 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
+        self.lineEdit_Welli_Pwf_4.setObjectName("lineEdit_Welli_Pwf_4")
+        self.gridLayout.addWidget(self.lineEdit_Welli_Pwf_4, 3, 1, 1, 1)
+
+        self.lineEdit_Welli_Rw_7 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
+        self.lineEdit_Welli_Rw_7.setObjectName("lineEdit_Welli_Rw_7")
+        self.gridLayout.addWidget(self.lineEdit_Welli_Rw_7, 6, 4, 1, 1)
 
         self.lineEdit_Welli_Skin_3 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
         self.lineEdit_Welli_Skin_3.setObjectName("lineEdit_Welli_Skin_3")
-        self.gridLayout.addWidget(self.lineEdit_Welli_Skin_3, 1, 5, 1, 1)
+        self.gridLayout.addWidget(self.lineEdit_Welli_Skin_3, 2, 5, 1, 1)
+
+        self.lineEdit_Welli_Skin_2 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
+        self.lineEdit_Welli_Skin_2.setObjectName("lineEdit_Welli_Skin_2")
+        self.gridLayout.addWidget(self.lineEdit_Welli_Skin_2, 1, 5, 1, 1)
+
+        self.lineEdit_Welli_Pwf_1 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
+        self.lineEdit_Welli_Pwf_1.setObjectName("lineEdit_Welli_Pwf_1")
+        self.gridLayout.addWidget(self.lineEdit_Welli_Pwf_1, 0, 1, 1, 1)
 
         self.lineEdit_Welli_Pwf_2 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
         self.lineEdit_Welli_Pwf_2.setObjectName("lineEdit_Welli_Pwf_2")
-        self.gridLayout.addWidget(self.lineEdit_Welli_Pwf_2, 0, 1, 1, 1)
-
-        self.lineEdit_Welli_Pwf_3 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
-        self.lineEdit_Welli_Pwf_3.setObjectName("lineEdit_Welli_Pwf_3")
-        self.gridLayout.addWidget(self.lineEdit_Welli_Pwf_3, 1, 1, 1, 1)
+        self.gridLayout.addWidget(self.lineEdit_Welli_Pwf_2, 1, 1, 1, 1)
 
         self.label_Welli_12 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
         self.label_Welli_12.setAlignment(QtCore.Qt.AlignCenter)
         self.label_Welli_12.setObjectName("label_Welli_12")
         self.gridLayout.addWidget(self.label_Welli_12, 5, 0, 1, 1)
 
-        self.lineEdit_Welli_Pwf_10 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
-        self.lineEdit_Welli_Pwf_10.setObjectName("lineEdit_Welli_Pwf_10")
-        self.gridLayout.addWidget(self.lineEdit_Welli_Pwf_10, 4, 1, 1, 1)
+        self.lineEdit_Welli_Pwf_5 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
+        self.lineEdit_Welli_Pwf_5.setObjectName("lineEdit_Welli_Pwf_5")
+        self.gridLayout.addWidget(self.lineEdit_Welli_Pwf_5, 4, 1, 1, 1)
 
-        self.lineEdit_Welli_Phii_2 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
-        self.lineEdit_Welli_Phii_2.setObjectName("lineEdit_Welli_Phii_2")
-        self.gridLayout.addWidget(self.lineEdit_Welli_Phii_2, 0, 3, 1, 1)
+        self.lineEdit_Welli_Phii_1 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
+        self.lineEdit_Welli_Phii_1.setObjectName("lineEdit_Welli_Phii_1")
+        self.gridLayout.addWidget(self.lineEdit_Welli_Phii_1, 0, 3, 1, 1)
 
-        self.lineEdit_Welli_Ri_18 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
-        self.lineEdit_Welli_Ri_18.setObjectName("lineEdit_Welli_Ri_18")
-        self.gridLayout.addWidget(self.lineEdit_Welli_Ri_18, 5, 5, 1, 1)
+        self.lineEdit_Welli_Skin_6 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
+        self.lineEdit_Welli_Skin_6.setObjectName("lineEdit_Welli_Skin_6")
+        self.gridLayout.addWidget(self.lineEdit_Welli_Skin_6, 5, 5, 1, 1)
 
-        self.lineEdit_Welli_Rw_3 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
-        self.lineEdit_Welli_Rw_3.setObjectName("lineEdit_Welli_Rw_3")
-        self.gridLayout.addWidget(self.lineEdit_Welli_Rw_3, 1, 4, 1, 1)
+        self.lineEdit_Welli_Rw_2 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
+        self.lineEdit_Welli_Rw_2.setObjectName("lineEdit_Welli_Rw_2")
+        self.gridLayout.addWidget(self.lineEdit_Welli_Rw_2, 1, 4, 1, 1)
 
-        self.lineEdit_Welli_Pwf_11 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
-        self.lineEdit_Welli_Pwf_11.setObjectName("lineEdit_Welli_Pwf_11")
-        self.gridLayout.addWidget(self.lineEdit_Welli_Pwf_11, 5, 1, 1, 1)
+        self.lineEdit_Welli_Pwf_6 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
+        self.lineEdit_Welli_Pwf_6.setObjectName("lineEdit_Welli_Pwf_6")
+        self.gridLayout.addWidget(self.lineEdit_Welli_Pwf_6, 5, 1, 1, 1)
 
-        self.lineEdit_Welli_Skin_10 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
-        self.lineEdit_Welli_Skin_10.setObjectName("lineEdit_Welli_Skin_10")
-        self.gridLayout.addWidget(self.lineEdit_Welli_Skin_10, 4, 5, 1, 1)
+        self.lineEdit_Welli_Skin_5 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
+        self.lineEdit_Welli_Skin_5.setObjectName("lineEdit_Welli_Skin_5")
+        self.gridLayout.addWidget(self.lineEdit_Welli_Skin_5, 4, 5, 1, 1)
 
         self.label_Welli_2 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
         self.label_Welli_2.setAlignment(QtCore.Qt.AlignCenter)
@@ -155,34 +155,34 @@ class Ui_MainWindow(object):
         self.label_Welli_5.setObjectName("label_Welli_5")
         self.gridLayout.addWidget(self.label_Welli_5, 3, 0, 1, 1)
 
-        self.lineEdit_Welli_Rw_5 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
-        self.lineEdit_Welli_Rw_5.setObjectName("lineEdit_Welli_Rw_5")
-        self.gridLayout.addWidget(self.lineEdit_Welli_Rw_5, 3, 4, 1, 1)
+        self.lineEdit_Welli_Rw_4 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
+        self.lineEdit_Welli_Rw_4.setObjectName("lineEdit_Welli_Rw_4")
+        self.gridLayout.addWidget(self.lineEdit_Welli_Rw_4, 3, 4, 1, 1)
 
-        self.lineEdit_Welli_Phii_3 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
-        self.lineEdit_Welli_Phii_3.setObjectName("lineEdit_Welli_Phii_3")
-        self.gridLayout.addWidget(self.lineEdit_Welli_Phii_3, 1, 3, 1, 1)
+        self.lineEdit_Welli_Phii_2 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
+        self.lineEdit_Welli_Phii_2.setObjectName("lineEdit_Welli_Phii_2")
+        self.gridLayout.addWidget(self.lineEdit_Welli_Phii_2, 1, 3, 1, 1)
 
-        self.lineEdit_Welli_Ri_5 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
-        self.lineEdit_Welli_Ri_5.setObjectName("lineEdit_Welli_Ri_5")
-        self.gridLayout.addWidget(self.lineEdit_Welli_Ri_5, 3, 2, 1, 1)
+        self.lineEdit_Welli_Ri_4 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
+        self.lineEdit_Welli_Ri_4.setObjectName("lineEdit_Welli_Ri_4")
+        self.gridLayout.addWidget(self.lineEdit_Welli_Ri_4, 3, 2, 1, 1)
 
         self.label_Welli_4 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
         self.label_Welli_4.setAlignment(QtCore.Qt.AlignCenter)
         self.label_Welli_4.setObjectName("label_Welli_4")
         self.gridLayout.addWidget(self.label_Welli_4, 2, 0, 1, 1)
 
-        self.lineEdit_Welli_Ri_13 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
-        self.lineEdit_Welli_Ri_13.setObjectName("lineEdit_Welli_Ri_13")
-        self.gridLayout.addWidget(self.lineEdit_Welli_Ri_13, 5, 4, 1, 1)
+        self.lineEdit_Welli_Rw_6 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
+        self.lineEdit_Welli_Rw_6.setObjectName("lineEdit_Welli_Rw_6")
+        self.gridLayout.addWidget(self.lineEdit_Welli_Rw_6, 5, 4, 1, 1)
 
-        self.lineEdit_Welli_Ri_2 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
-        self.lineEdit_Welli_Ri_2.setObjectName("lineEdit_Welli_Ri_2")
-        self.gridLayout.addWidget(self.lineEdit_Welli_Ri_2, 0, 2, 1, 1)
+        self.lineEdit_Welli_Ri_1 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
+        self.lineEdit_Welli_Ri_1.setObjectName("lineEdit_Welli_Ri_1")
+        self.gridLayout.addWidget(self.lineEdit_Welli_Ri_1, 0, 2, 1, 1)
 
-        self.lineEdit_Welli_Phii_4 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
-        self.lineEdit_Welli_Phii_4.setObjectName("lineEdit_Welli_Phii_4")
-        self.gridLayout.addWidget(self.lineEdit_Welli_Phii_4, 2, 3, 1, 1)
+        self.lineEdit_Welli_Phii_3 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
+        self.lineEdit_Welli_Phii_3.setObjectName("lineEdit_Welli_Phii_3")
+        self.gridLayout.addWidget(self.lineEdit_Welli_Phii_3, 2, 3, 1, 1)
 
         self.label_Welli_6 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
         self.label_Welli_6.setAlignment(QtCore.Qt.AlignCenter)
@@ -199,41 +199,41 @@ class Ui_MainWindow(object):
         self.label_Welli_14.setObjectName("label_Welli_14")
         self.gridLayout.addWidget(self.label_Welli_14, 7, 0, 1, 1)
 
-        self.lineEdit_Welli_Pwf_4 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
-        self.lineEdit_Welli_Pwf_4.setObjectName("lineEdit_Welli_Pwf_4")
-        self.gridLayout.addWidget(self.lineEdit_Welli_Pwf_4, 2, 1, 1, 1)
+        self.lineEdit_Welli_Pwf_3 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
+        self.lineEdit_Welli_Pwf_3.setObjectName("lineEdit_Welli_Pwf_3")
+        self.gridLayout.addWidget(self.lineEdit_Welli_Pwf_3, 2, 1, 1, 1)
 
-        self.lineEdit_Welli_Rw_10 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
-        self.lineEdit_Welli_Rw_10.setObjectName("lineEdit_Welli_Rw_10")
-        self.gridLayout.addWidget(self.lineEdit_Welli_Rw_10, 4, 4, 1, 1)
+        self.lineEdit_Welli_Rw_5 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
+        self.lineEdit_Welli_Rw_5.setObjectName("lineEdit_Welli_Rw_5")
+        self.gridLayout.addWidget(self.lineEdit_Welli_Rw_5, 4, 4, 1, 1)
 
-        self.lineEdit_Welli_Skin_2 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
-        self.lineEdit_Welli_Skin_2.setObjectName("lineEdit_Welli_Skin_2")
-        self.gridLayout.addWidget(self.lineEdit_Welli_Skin_2, 0, 5, 1, 1)
+        self.lineEdit_Welli_Skin_1 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
+        self.lineEdit_Welli_Skin_1.setObjectName("lineEdit_Welli_Skin_1")
+        self.gridLayout.addWidget(self.lineEdit_Welli_Skin_1, 0, 5, 1, 1)
 
-        self.lineEdit_Welli_Phii_5 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
-        self.lineEdit_Welli_Phii_5.setObjectName("lineEdit_Welli_Phii_5")
-        self.gridLayout.addWidget(self.lineEdit_Welli_Phii_5, 3, 3, 1, 1)
+        self.lineEdit_Welli_Phii_4 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
+        self.lineEdit_Welli_Phii_4.setObjectName("lineEdit_Welli_Phii_4")
+        self.gridLayout.addWidget(self.lineEdit_Welli_Phii_4, 3, 3, 1, 1)
 
-        self.lineEdit_Welli_Ri_19 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
-        self.lineEdit_Welli_Ri_19.setObjectName("lineEdit_Welli_Ri_19")
-        self.gridLayout.addWidget(self.lineEdit_Welli_Ri_19, 7, 1, 1, 1)
+        self.lineEdit_Welli_Pwf_8 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
+        self.lineEdit_Welli_Pwf_8.setObjectName("lineEdit_Welli_Pwf_8")
+        self.gridLayout.addWidget(self.lineEdit_Welli_Pwf_8, 7, 1, 1, 1)
 
-        self.lineEdit_Welli_Pwf_13 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
-        self.lineEdit_Welli_Pwf_13.setObjectName("lineEdit_Welli_Pwf_13")
-        self.gridLayout.addWidget(self.lineEdit_Welli_Pwf_13, 7, 2, 1, 1)
+        self.lineEdit_Welli_Ri_8 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
+        self.lineEdit_Welli_Ri_8.setObjectName("lineEdit_Welli_Ri_8")
+        self.gridLayout.addWidget(self.lineEdit_Welli_Ri_8, 7, 2, 1, 1)
 
-        self.lineEdit_Welli_Ri_20 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
-        self.lineEdit_Welli_Ri_20.setObjectName("lineEdit_Welli_Ri_20")
-        self.gridLayout.addWidget(self.lineEdit_Welli_Ri_20, 7, 3, 1, 1)
+        self.lineEdit_Welli_Phii_8 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
+        self.lineEdit_Welli_Phii_8.setObjectName("lineEdit_Welli_Phii_8")
+        self.gridLayout.addWidget(self.lineEdit_Welli_Phii_8, 7, 3, 1, 1)
 
-        self.lineEdit_Welli_Ri_21 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
-        self.lineEdit_Welli_Ri_21.setObjectName("lineEdit_Welli_Ri_21")
-        self.gridLayout.addWidget(self.lineEdit_Welli_Ri_21, 7, 4, 1, 1)
+        self.lineEdit_Welli_Rw_8 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
+        self.lineEdit_Welli_Rw_8.setObjectName("lineEdit_Welli_Rw_8")
+        self.gridLayout.addWidget(self.lineEdit_Welli_Rw_8, 7, 4, 1, 1)
 
-        self.lineEdit_Welli_Ri_22 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
-        self.lineEdit_Welli_Ri_22.setObjectName("lineEdit_Welli_Ri_22")
-        self.gridLayout.addWidget(self.lineEdit_Welli_Ri_22, 7, 5, 1, 1)
+        self.lineEdit_Welli_Skin_8 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
+        self.lineEdit_Welli_Skin_8.setObjectName("lineEdit_Welli_Skin_8")
+        self.gridLayout.addWidget(self.lineEdit_Welli_Skin_8, 7, 5, 1, 1)
         self.scrollArea_Wells_Area.setWidget(self.scrollAreaWidgetContents)
 
         # # images area
@@ -644,53 +644,53 @@ class Ui_MainWindow(object):
         self.lineEdit__resvB.setText('1.25')
         # well's properties
         # well_1
-        self.lineEdit_Welli_Pwf_2.setText('5.1')
-        self.lineEdit_Welli_Ri_2.setText('300')
-        self.lineEdit_Welli_Phii_2.setText('5')
+        self.lineEdit_Welli_Pwf_1.setText('5.1')
+        self.lineEdit_Welli_Ri_1.setText('300')
+        self.lineEdit_Welli_Phii_1.setText('5')
+        self.lineEdit_Welli_Rw_1.setText('0.1')
+        self.lineEdit_Welli_Skin_1.setText('5')
+        # well_2
+        self.lineEdit_Welli_Pwf_2.setText('5.2')
+        self.lineEdit_Welli_Ri_2.setText('400')
+        self.lineEdit_Welli_Phii_2.setText('10')
         self.lineEdit_Welli_Rw_2.setText('0.1')
         self.lineEdit_Welli_Skin_2.setText('5')
-        # well_2
-        self.lineEdit_Welli_Pwf_3.setText('5.2')
-        self.lineEdit_Welli_Ri_3.setText('400')
-        self.lineEdit_Welli_Phii_3.setText('10')
+        # well_3
+        self.lineEdit_Welli_Pwf_3.setText('6.4')
+        self.lineEdit_Welli_Ri_3.setText('800')
+        self.lineEdit_Welli_Phii_3.setText('15')
         self.lineEdit_Welli_Rw_3.setText('0.1')
         self.lineEdit_Welli_Skin_3.setText('5')
-        # well_3
-        self.lineEdit_Welli_Pwf_4.setText('6.4')
-        self.lineEdit_Welli_Ri_4.setText('800')
-        self.lineEdit_Welli_Phii_4.setText('15')
+        # well_4
+        self.lineEdit_Welli_Pwf_4.setText('5.5')
+        self.lineEdit_Welli_Ri_4.setText('1000')
+        self.lineEdit_Welli_Phii_4.setText('20')
         self.lineEdit_Welli_Rw_4.setText('0.1')
         self.lineEdit_Welli_Skin_4.setText('5')
-        # well_4
-        self.lineEdit_Welli_Pwf_5.setText('5.5')
-        self.lineEdit_Welli_Ri_5.setText('1000')
-        self.lineEdit_Welli_Phii_5.setText('20')
+        # well_5
+        self.lineEdit_Welli_Pwf_5.setText('4.8')
+        self.lineEdit_Welli_Ri_5.setText('200')
+        self.lineEdit_Welli_Phii_5.setText('25')
         self.lineEdit_Welli_Rw_5.setText('0.1')
         self.lineEdit_Welli_Skin_5.setText('5')
-        # well_5
-        self.lineEdit_Welli_Pwf_10.setText('4.8')
-        self.lineEdit_Welli_Ri_10.setText('200')
-        self.lineEdit_Welli_Phii_10.setText('25')
-        self.lineEdit_Welli_Rw_10.setText('0.1')
-        self.lineEdit_Welli_Skin_10.setText('5')
         # well_6
-        self.lineEdit_Welli_Pwf_11.setText('8.7')
-        self.lineEdit_Welli_Ri_11.setText('1500')
-        self.lineEdit_Welli_Ri_12.setText('30')  # phi_i
-        self.lineEdit_Welli_Ri_13.setText('0.1')  # r_w
-        self.lineEdit_Welli_Ri_18.setText('5')  # skin
+        self.lineEdit_Welli_Pwf_6.setText('8.7')
+        self.lineEdit_Welli_Ri_6.setText('1500')
+        self.lineEdit_Welli_Phii_6.setText('30')  # phi_i
+        self.lineEdit_Welli_Rw_6.setText('0.1')  # r_w
+        self.lineEdit_Welli_Skin_6.setText('5')  # skin
         # well_7
-        self.lineEdit_Welli_Pwf_12.setText('5.8')
-        self.lineEdit_Welli_Ri_15.setText('600')
-        self.lineEdit_Welli_Ri_16.setText('35')  # phi_i
-        self.lineEdit_Welli_Ri_17.setText('0.1')  # r_w
-        self.lineEdit_Welli_Ri_14.setText('5')  # skin
+        self.lineEdit_Welli_Pwf_7.setText('5.8')
+        self.lineEdit_Welli_Ri_7.setText('600')
+        self.lineEdit_Welli_Phii_7.setText('35')  # phi_i
+        self.lineEdit_Welli_Rw_7.setText('0.1')  # r_w
+        self.lineEdit_Welli_Skin_7.setText('5')  # skin
         # well_8
-        self.lineEdit_Welli_Ri_19.setText('9.3')  # p_wf
-        self.lineEdit_Welli_Pwf_13.setText('2000')  # r_i
-        self.lineEdit_Welli_Ri_20.setText('40')  # phi_i
-        self.lineEdit_Welli_Ri_21.setText('0.1')  # r_w
-        self.lineEdit_Welli_Ri_22.setText('5')  # skin
+        self.lineEdit_Welli_Pwf_8.setText('9.3')  # p_wf
+        self.lineEdit_Welli_Ri_8.setText('2000')  # r_i
+        self.lineEdit_Welli_Phii_8.setText('40')  # phi_i
+        self.lineEdit_Welli_Rw_8.setText('0.1')  # r_w
+        self.lineEdit_Welli_Skin_8.setText('5')  # skin
 
         # # connect actions to the buttons
         self.pushButton_Calculate.clicked.connect(self.do_calculation)
@@ -747,7 +747,7 @@ class Ui_MainWindow(object):
         i = 0
         for widget in (self.gridLayout.itemAt(i).widget() for i in range(self.gridLayout.count())):
             if isinstance(widget, QtWidgets.QLineEdit):
-                print(f"linedit: {widget.objectName()}  - {widget.text()} : {i}")
+                print(f"linedit: {widget.objectName()}  - {widget.text()} : {i}, type : {type(widget.objectName())}")
             i += 1
         pass
 
