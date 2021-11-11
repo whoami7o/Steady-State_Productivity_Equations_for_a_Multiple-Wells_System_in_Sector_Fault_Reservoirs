@@ -462,6 +462,8 @@ class Ui_MainWindow(object):
         font.setPointSize(8)
         self.lineEdit__resvB.setFont(font)
         self.lineEdit__resvB.setObjectName("lineEdit__resvB")
+
+        # # well grid captions
         self.gridLayout_Resv_Layer.addWidget(self.lineEdit__resvB, 5, 1, 1, 2)
         self.layoutWidget3 = QtWidgets.QWidget(self.centralwidget)
         self.layoutWidget3.setGeometry(QtCore.QRect(580, 350, 451, 18))
@@ -469,26 +471,33 @@ class Ui_MainWindow(object):
         self.horizontalLayout_2 = QtWidgets.QHBoxLayout(self.layoutWidget3)
         self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
+        # pwf label
         self.label_Well_Pwf = QtWidgets.QLabel(self.layoutWidget3)
         self.label_Well_Pwf.setAlignment(QtCore.Qt.AlignCenter)
         self.label_Well_Pwf.setObjectName("label_Well_Pwf")
         self.horizontalLayout_2.addWidget(self.label_Well_Pwf)
+        # ri label
         self.label__Well_Ri = QtWidgets.QLabel(self.layoutWidget3)
         self.label__Well_Ri.setAlignment(QtCore.Qt.AlignCenter)
         self.label__Well_Ri.setObjectName("label__Well_Ri")
         self.horizontalLayout_2.addWidget(self.label__Well_Ri)
+        # phii label
         self.label__Well_Phii = QtWidgets.QLabel(self.layoutWidget3)
         self.label__Well_Phii.setAlignment(QtCore.Qt.AlignCenter)
         self.label__Well_Phii.setObjectName("label__Well_Phii")
         self.horizontalLayout_2.addWidget(self.label__Well_Phii)
+        # rw label
         self.label__Well_Rw = QtWidgets.QLabel(self.layoutWidget3)
         self.label__Well_Rw.setAlignment(QtCore.Qt.AlignCenter)
         self.label__Well_Rw.setObjectName("label__Well_Rw")
         self.horizontalLayout_2.addWidget(self.label__Well_Rw)
+        # skin label
         self.label__Well_Skin = QtWidgets.QLabel(self.layoutWidget3)
         self.label__Well_Skin.setAlignment(QtCore.Qt.AlignCenter)
         self.label__Well_Skin.setObjectName("label__Well_Skin")
         self.horizontalLayout_2.addWidget(self.label__Well_Skin)
+
+        # # captions
         self.layoutWidget4 = QtWidgets.QWidget(self.centralwidget)
         self.layoutWidget4.setGeometry(QtCore.QRect(210, 310, 851, 20))
         self.layoutWidget4.setObjectName("layoutWidget4")
@@ -502,6 +511,7 @@ class Ui_MainWindow(object):
         font.setItalic(False)
         font.setUnderline(True)
         font.setWeight(50)
+        # label reservoir
         self.label_Reservoir.setFont(font)
         self.label_Reservoir.setAlignment(QtCore.Qt.AlignCenter)
         self.label_Reservoir.setObjectName("label_Reservoir")
@@ -513,10 +523,13 @@ class Ui_MainWindow(object):
         font.setItalic(False)
         font.setUnderline(True)
         font.setWeight(50)
+        # well label
         self.label_Well.setFont(font)
         self.label_Well.setAlignment(QtCore.Qt.AlignCenter)
         self.label_Well.setObjectName("label_Well")
         self.horizontalLayout_Captions.addWidget(self.label_Well)
+
+        # # radio buttons
         self.layoutWidget5 = QtWidgets.QWidget(self.centralwidget)
         self.layoutWidget5.setGeometry(QtCore.QRect(30, 20, 71, 53))
         self.layoutWidget5.setObjectName("layoutWidget5")
@@ -535,14 +548,19 @@ class Ui_MainWindow(object):
         self.radioButton_S.setFont(font)
         self.radioButton_S.setObjectName("radioButton_S")
         self.gridLayout_ModeChoice_Flags.addWidget(self.radioButton_S, 1, 0, 1, 1)
+
+
+        # # results
         self.label_Results = QtWidgets.QLabel(self.centralwidget)
         self.label_Results.setGeometry(QtCore.QRect(80, 100, 71, 21))
         font = QtGui.QFont()
         font.setPointSize(10)
         font.setUnderline(True)
+
         self.label_Results.setFont(font)
         self.label_Results.setAlignment(QtCore.Qt.AlignCenter)
         self.label_Results.setObjectName("label_Results")
+
         self.scrollArea = QtWidgets.QScrollArea(self.centralwidget)
         self.scrollArea.setGeometry(QtCore.QRect(10, 160, 161, 251))
         self.scrollArea.setWidgetResizable(True)
@@ -550,6 +568,7 @@ class Ui_MainWindow(object):
         self.scrollAreaWidgetContents_2 = QtWidgets.QWidget()
         self.scrollAreaWidgetContents_2.setGeometry(QtCore.QRect(0, 0, 138, 263))
         self.scrollAreaWidgetContents_2.setObjectName("scrollAreaWidgetContents_2")
+
         self.gridLayout_2 = QtWidgets.QGridLayout(self.scrollAreaWidgetContents_2)
         self.gridLayout_2.setObjectName("gridLayout_2")
         self.label_Welli_result1 = QtWidgets.QLabel(self.scrollAreaWidgetContents_2)
@@ -609,17 +628,21 @@ class Ui_MainWindow(object):
         self.lineEdit_Welli_result1_8.setObjectName("lineEdit_Welli_result1_8")
         self.gridLayout_2.addWidget(self.lineEdit_Welli_result1_8, 7, 1, 1, 1)
         self.scrollArea.setWidget(self.scrollAreaWidgetContents_2)
+        # result label
         self.label_Result = QtWidgets.QLabel(self.centralwidget)
         self.label_Result.setGeometry(QtCore.QRect(64, 140, 71, 20))
         self.label_Result.setAlignment(QtCore.Qt.AlignCenter)
         self.label_Result.setObjectName("label_Result")
+
         self.label_Result_2 = QtWidgets.QLabel(self.centralwidget)
         self.label_Result_2.setGeometry(QtCore.QRect(190, 140, 91, 20))
         self.label_Result_2.setAlignment(QtCore.Qt.AlignCenter)
         self.label_Result_2.setObjectName("label_Result_2")
+
         self.lineEdit = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit.setGeometry(QtCore.QRect(190, 160, 91, 22))
         self.lineEdit.setObjectName("lineEdit")
+
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 1110, 26))
@@ -629,9 +652,6 @@ class Ui_MainWindow(object):
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
 
-        # # by default chose Q_mode
-        self.radioButton_Q.setChecked(True)
-
         # # setting default values
         # reservoir properties
         self.lineEdit_resvPe.setText('18.0')
@@ -639,7 +659,7 @@ class Ui_MainWindow(object):
         self.lineEdit__resvRe.setText('2500')
         self.lineEdit__resvH.setText('20')
         self.lineEdit__resvKr.setText('0.1')
-        self.lineEdit__resvKz.setText('0.0025')
+        self.lineEdit__resvKz.setText('0.025')
         self.lineEdit__resvMu.setText('5.0')
         self.lineEdit__resvB.setText('1.25')
         # well's properties
@@ -698,6 +718,12 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
+        # # by default chose Q_mode
+        self.radioButton_Q.setChecked(True)
+        # assign actions
+        self.radioButton_S.toggled.connect(self.change_mode_to_s)
+        self.radioButton_Q.toggled.connect(self.change_mode_to_q)
+
     def retranslateUi(self, MainWindow):
         window_name = "Steady-State Productivity Equations for a Multiple-Wells System in Sector Fault Reservoirs"
         _translate = QtCore.QCoreApplication.translate
@@ -744,12 +770,89 @@ class Ui_MainWindow(object):
         self.label_Result_2.setText(_translate("MainWindow", "Q_sum, m^3/d"))
 
     def do_calculation(self):
-        i = 0
+        # # data collecting
+        well_input = self._well_data_prep()
+        reservoir_input = self._reservoir_data_prep()
+
+        # # calculations
+        if self.radioButton_S.isChecked():
+            skinlist = sspeq.find_s(well_input, reservoir_input)
+            # # show results
+            # well skin
+            for widget in (self.gridLayout_2.itemAt(i).widget() for i in
+                           range(self.gridLayout_2.count())):
+                if isinstance(widget, QtWidgets.QLineEdit):
+                    widget.setText(str(round(skinlist.pop(0), 2)))
+
+        elif self.radioButton_Q.isChecked():
+            sumrate, ratelist = sspeq.find_q(well_input, reservoir_input)
+            # # show results
+            # sum rate
+            self.lineEdit.setText(str(round(sumrate, 2)))
+            # well rate
+            for widget in (self.gridLayout_2.itemAt(i).widget() for i in
+                           range(self.gridLayout_2.count())):
+                if isinstance(widget, QtWidgets.QLineEdit):
+                    widget.setText(str(round(ratelist.pop(0), 2)))
+
+    def _well_data_prep(self):
+        # collect well info
+        wells_prop_dict = {}
         for widget in (self.gridLayout.itemAt(i).widget() for i in range(self.gridLayout.count())):
             if isinstance(widget, QtWidgets.QLineEdit):
-                print(f"linedit: {widget.objectName()}  - {widget.text()} : {i}, type : {type(widget.objectName())}")
-            i += 1
-        pass
+                # print(f"linedit: {widget.objectName()}  - {widget.text()} : {i}, type : {type(widget.objectName())}")
+                if widget.objectName()[-1] in wells_prop_dict:
+                    pass
+                else:
+                    wells_prop_dict[widget.objectName()[-1]] = {}
+
+                if 'Pwf' in widget.objectName():
+                    wells_prop_dict[widget.objectName()[-1]]['Pwf'] = float(widget.text())
+
+                elif 'Ri' in widget.objectName():
+                    wells_prop_dict[widget.objectName()[-1]]['Ri'] = (float(widget.text()))
+
+                elif 'Phii' in widget.objectName():
+                    wells_prop_dict[widget.objectName()[-1]]['Phii'] = float(widget.text())
+
+                elif 'Rw' in widget.objectName():
+                    wells_prop_dict[widget.objectName()[-1]]['Rw'] = float(widget.text())
+                # skin/q
+                elif 'Skin' in widget.objectName():
+                    wells_prop_dict[widget.objectName()[-1]]['Skin'] = float(widget.text())
+        # # restructure data according to functions template
+        # wells
+        well_input = []
+        for key in sorted(wells_prop_dict):
+            values = []
+            for value in ('Pwf', 'Ri', 'Phii', 'Rw', 'Skin'):
+                values.append(wells_prop_dict[key][value])
+
+            well_input.append(tuple(values))
+        well_input = tuple(well_input)
+        return well_input
+
+    def _reservoir_data_prep(self):
+        # collect reservoir info
+        resv_prop_dict = {}
+        for widget in (self.gridLayout_Resv_Layer.itemAt(i).widget() for i in
+                       range(self.gridLayout_Resv_Layer.count())):
+            if isinstance(widget, QtWidgets.QLineEdit):
+                resv_prop_dict[widget.objectName()[13:].replace('v', '')] = float(widget.text())
+
+        reservoir_input = []
+        for key in ('Pe', 'Re', 'PHI', 'H', 'Kr', 'Kz', 'Mu', 'B'):
+            reservoir_input.append(resv_prop_dict[key])
+        reservoir_input = tuple(reservoir_input)
+        return reservoir_input
+
+    def change_mode_to_s(self):
+        self.label_Result.setText('Skin-factor')
+
+
+    def change_mode_to_q(self):
+        self.label_Result.setText('Q_sum, m^3/d')
+        self.label_Result_2.setText('Q_sum, m^3/d')
 
 if __name__ == "__main__":
     import sys
