@@ -9,14 +9,21 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+import ssp_eq_mws_sfr as sspeq
 
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
+        # # mainWindow
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1110, 586)
+        # MainWindow.resize(1110, 586)
+        MainWindow.setFixedSize(1110, 586)
+
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
+
+        # # scroll area
+
         self.scrollArea_Wells_Area = QtWidgets.QScrollArea(self.centralwidget)
         self.scrollArea_Wells_Area.setGeometry(QtCore.QRect(530, 370, 531, 161))
         self.scrollArea_Wells_Area.setWidgetResizable(True)
@@ -24,167 +31,219 @@ class Ui_MainWindow(object):
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
         self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 508, 263))
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
+        # grid
         self.gridLayout = QtWidgets.QGridLayout(self.scrollAreaWidgetContents)
         self.gridLayout.setObjectName("gridLayout")
+        # contents
         self.lineEdit_Welli_Ri_14 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
         self.lineEdit_Welli_Ri_14.setObjectName("lineEdit_Welli_Ri_14")
         self.gridLayout.addWidget(self.lineEdit_Welli_Ri_14, 6, 5, 1, 1)
+
         self.lineEdit_Welli_Ri_3 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
         self.lineEdit_Welli_Ri_3.setObjectName("lineEdit_Welli_Ri_3")
         self.gridLayout.addWidget(self.lineEdit_Welli_Ri_3, 1, 2, 1, 1)
+
         self.label_Welli_13 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
         self.label_Welli_13.setAlignment(QtCore.Qt.AlignCenter)
         self.label_Welli_13.setObjectName("label_Welli_13")
         self.gridLayout.addWidget(self.label_Welli_13, 6, 0, 1, 1)
+
         self.lineEdit_Welli_Phii_10 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
         self.lineEdit_Welli_Phii_10.setObjectName("lineEdit_Welli_Phii_10")
         self.gridLayout.addWidget(self.lineEdit_Welli_Phii_10, 4, 3, 1, 1)
+
         self.lineEdit_Welli_Skin_5 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
         self.lineEdit_Welli_Skin_5.setObjectName("lineEdit_Welli_Skin_5")
         self.gridLayout.addWidget(self.lineEdit_Welli_Skin_5, 3, 5, 1, 1)
+
         self.lineEdit_Welli_Pwf_12 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
         self.lineEdit_Welli_Pwf_12.setObjectName("lineEdit_Welli_Pwf_12")
         self.gridLayout.addWidget(self.lineEdit_Welli_Pwf_12, 6, 1, 1, 1)
+
         self.lineEdit_Welli_Ri_4 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
         self.lineEdit_Welli_Ri_4.setObjectName("lineEdit_Welli_Ri_4")
         self.gridLayout.addWidget(self.lineEdit_Welli_Ri_4, 2, 2, 1, 1)
+
         self.lineEdit_Welli_Ri_16 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
         self.lineEdit_Welli_Ri_16.setObjectName("lineEdit_Welli_Ri_16")
         self.gridLayout.addWidget(self.lineEdit_Welli_Ri_16, 6, 3, 1, 1)
+
         self.lineEdit_Welli_Ri_12 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
         self.lineEdit_Welli_Ri_12.setObjectName("lineEdit_Welli_Ri_12")
         self.gridLayout.addWidget(self.lineEdit_Welli_Ri_12, 5, 3, 1, 1)
+
         self.lineEdit_Welli_Rw_4 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
         self.lineEdit_Welli_Rw_4.setObjectName("lineEdit_Welli_Rw_4")
         self.gridLayout.addWidget(self.lineEdit_Welli_Rw_4, 2, 4, 1, 1)
+
         self.lineEdit_Welli_Rw_2 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
         self.lineEdit_Welli_Rw_2.setObjectName("lineEdit_Welli_Rw_2")
         self.gridLayout.addWidget(self.lineEdit_Welli_Rw_2, 0, 4, 1, 1)
+
         self.lineEdit_Welli_Ri_11 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
         self.lineEdit_Welli_Ri_11.setObjectName("lineEdit_Welli_Ri_11")
         self.gridLayout.addWidget(self.lineEdit_Welli_Ri_11, 5, 2, 1, 1)
+
         self.lineEdit_Welli_Ri_15 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
         self.lineEdit_Welli_Ri_15.setObjectName("lineEdit_Welli_Ri_15")
         self.gridLayout.addWidget(self.lineEdit_Welli_Ri_15, 6, 2, 1, 1)
+
         self.lineEdit_Welli_Ri_10 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
         self.lineEdit_Welli_Ri_10.setObjectName("lineEdit_Welli_Ri_10")
         self.gridLayout.addWidget(self.lineEdit_Welli_Ri_10, 4, 2, 1, 1)
+
         self.lineEdit_Welli_Pwf_5 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
         self.lineEdit_Welli_Pwf_5.setObjectName("lineEdit_Welli_Pwf_5")
         self.gridLayout.addWidget(self.lineEdit_Welli_Pwf_5, 3, 1, 1, 1)
+
         self.lineEdit_Welli_Ri_17 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
         self.lineEdit_Welli_Ri_17.setObjectName("lineEdit_Welli_Ri_17")
         self.gridLayout.addWidget(self.lineEdit_Welli_Ri_17, 6, 4, 1, 1)
+
         self.lineEdit_Welli_Skin_4 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
         self.lineEdit_Welli_Skin_4.setObjectName("lineEdit_Welli_Skin_4")
         self.gridLayout.addWidget(self.lineEdit_Welli_Skin_4, 2, 5, 1, 1)
+
         self.lineEdit_Welli_Skin_3 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
         self.lineEdit_Welli_Skin_3.setObjectName("lineEdit_Welli_Skin_3")
         self.gridLayout.addWidget(self.lineEdit_Welli_Skin_3, 1, 5, 1, 1)
+
         self.lineEdit_Welli_Pwf_2 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
         self.lineEdit_Welli_Pwf_2.setObjectName("lineEdit_Welli_Pwf_2")
         self.gridLayout.addWidget(self.lineEdit_Welli_Pwf_2, 0, 1, 1, 1)
+
         self.lineEdit_Welli_Pwf_3 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
         self.lineEdit_Welli_Pwf_3.setObjectName("lineEdit_Welli_Pwf_3")
         self.gridLayout.addWidget(self.lineEdit_Welli_Pwf_3, 1, 1, 1, 1)
+
         self.label_Welli_12 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
         self.label_Welli_12.setAlignment(QtCore.Qt.AlignCenter)
         self.label_Welli_12.setObjectName("label_Welli_12")
         self.gridLayout.addWidget(self.label_Welli_12, 5, 0, 1, 1)
+
         self.lineEdit_Welli_Pwf_10 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
         self.lineEdit_Welli_Pwf_10.setObjectName("lineEdit_Welli_Pwf_10")
         self.gridLayout.addWidget(self.lineEdit_Welli_Pwf_10, 4, 1, 1, 1)
+
         self.lineEdit_Welli_Phii_2 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
         self.lineEdit_Welli_Phii_2.setObjectName("lineEdit_Welli_Phii_2")
         self.gridLayout.addWidget(self.lineEdit_Welli_Phii_2, 0, 3, 1, 1)
+
         self.lineEdit_Welli_Ri_18 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
         self.lineEdit_Welli_Ri_18.setObjectName("lineEdit_Welli_Ri_18")
         self.gridLayout.addWidget(self.lineEdit_Welli_Ri_18, 5, 5, 1, 1)
+
         self.lineEdit_Welli_Rw_3 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
         self.lineEdit_Welli_Rw_3.setObjectName("lineEdit_Welli_Rw_3")
         self.gridLayout.addWidget(self.lineEdit_Welli_Rw_3, 1, 4, 1, 1)
+
         self.lineEdit_Welli_Pwf_11 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
         self.lineEdit_Welli_Pwf_11.setObjectName("lineEdit_Welli_Pwf_11")
         self.gridLayout.addWidget(self.lineEdit_Welli_Pwf_11, 5, 1, 1, 1)
+
         self.lineEdit_Welli_Skin_10 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
         self.lineEdit_Welli_Skin_10.setObjectName("lineEdit_Welli_Skin_10")
         self.gridLayout.addWidget(self.lineEdit_Welli_Skin_10, 4, 5, 1, 1)
+
         self.label_Welli_2 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
         self.label_Welli_2.setAlignment(QtCore.Qt.AlignCenter)
         self.label_Welli_2.setObjectName("label_Welli_2")
         self.gridLayout.addWidget(self.label_Welli_2, 0, 0, 1, 1)
+
         self.label_Welli_5 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
         self.label_Welli_5.setAlignment(QtCore.Qt.AlignCenter)
         self.label_Welli_5.setObjectName("label_Welli_5")
         self.gridLayout.addWidget(self.label_Welli_5, 3, 0, 1, 1)
+
         self.lineEdit_Welli_Rw_5 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
         self.lineEdit_Welli_Rw_5.setObjectName("lineEdit_Welli_Rw_5")
         self.gridLayout.addWidget(self.lineEdit_Welli_Rw_5, 3, 4, 1, 1)
+
         self.lineEdit_Welli_Phii_3 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
         self.lineEdit_Welli_Phii_3.setObjectName("lineEdit_Welli_Phii_3")
         self.gridLayout.addWidget(self.lineEdit_Welli_Phii_3, 1, 3, 1, 1)
+
         self.lineEdit_Welli_Ri_5 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
         self.lineEdit_Welli_Ri_5.setObjectName("lineEdit_Welli_Ri_5")
         self.gridLayout.addWidget(self.lineEdit_Welli_Ri_5, 3, 2, 1, 1)
+
         self.label_Welli_4 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
         self.label_Welli_4.setAlignment(QtCore.Qt.AlignCenter)
         self.label_Welli_4.setObjectName("label_Welli_4")
         self.gridLayout.addWidget(self.label_Welli_4, 2, 0, 1, 1)
+
         self.lineEdit_Welli_Ri_13 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
         self.lineEdit_Welli_Ri_13.setObjectName("lineEdit_Welli_Ri_13")
         self.gridLayout.addWidget(self.lineEdit_Welli_Ri_13, 5, 4, 1, 1)
+
         self.lineEdit_Welli_Ri_2 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
         self.lineEdit_Welli_Ri_2.setObjectName("lineEdit_Welli_Ri_2")
         self.gridLayout.addWidget(self.lineEdit_Welli_Ri_2, 0, 2, 1, 1)
+
         self.lineEdit_Welli_Phii_4 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
         self.lineEdit_Welli_Phii_4.setObjectName("lineEdit_Welli_Phii_4")
         self.gridLayout.addWidget(self.lineEdit_Welli_Phii_4, 2, 3, 1, 1)
+
         self.label_Welli_6 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
         self.label_Welli_6.setAlignment(QtCore.Qt.AlignCenter)
         self.label_Welli_6.setObjectName("label_Welli_6")
         self.gridLayout.addWidget(self.label_Welli_6, 4, 0, 1, 1)
+
         self.label_Welli_3 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
         self.label_Welli_3.setAlignment(QtCore.Qt.AlignCenter)
         self.label_Welli_3.setObjectName("label_Welli_3")
         self.gridLayout.addWidget(self.label_Welli_3, 1, 0, 1, 1)
+
         self.label_Welli_14 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
         self.label_Welli_14.setAlignment(QtCore.Qt.AlignCenter)
         self.label_Welli_14.setObjectName("label_Welli_14")
         self.gridLayout.addWidget(self.label_Welli_14, 7, 0, 1, 1)
+
         self.lineEdit_Welli_Pwf_4 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
         self.lineEdit_Welli_Pwf_4.setObjectName("lineEdit_Welli_Pwf_4")
         self.gridLayout.addWidget(self.lineEdit_Welli_Pwf_4, 2, 1, 1, 1)
+
         self.lineEdit_Welli_Rw_10 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
         self.lineEdit_Welli_Rw_10.setObjectName("lineEdit_Welli_Rw_10")
         self.gridLayout.addWidget(self.lineEdit_Welli_Rw_10, 4, 4, 1, 1)
+
         self.lineEdit_Welli_Skin_2 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
         self.lineEdit_Welli_Skin_2.setObjectName("lineEdit_Welli_Skin_2")
         self.gridLayout.addWidget(self.lineEdit_Welli_Skin_2, 0, 5, 1, 1)
+
         self.lineEdit_Welli_Phii_5 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
         self.lineEdit_Welli_Phii_5.setObjectName("lineEdit_Welli_Phii_5")
         self.gridLayout.addWidget(self.lineEdit_Welli_Phii_5, 3, 3, 1, 1)
+
         self.lineEdit_Welli_Ri_19 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
         self.lineEdit_Welli_Ri_19.setObjectName("lineEdit_Welli_Ri_19")
         self.gridLayout.addWidget(self.lineEdit_Welli_Ri_19, 7, 1, 1, 1)
+
         self.lineEdit_Welli_Pwf_13 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
         self.lineEdit_Welli_Pwf_13.setObjectName("lineEdit_Welli_Pwf_13")
         self.gridLayout.addWidget(self.lineEdit_Welli_Pwf_13, 7, 2, 1, 1)
+
         self.lineEdit_Welli_Ri_20 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
         self.lineEdit_Welli_Ri_20.setObjectName("lineEdit_Welli_Ri_20")
         self.gridLayout.addWidget(self.lineEdit_Welli_Ri_20, 7, 3, 1, 1)
+
         self.lineEdit_Welli_Ri_21 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
         self.lineEdit_Welli_Ri_21.setObjectName("lineEdit_Welli_Ri_21")
         self.gridLayout.addWidget(self.lineEdit_Welli_Ri_21, 7, 4, 1, 1)
+
         self.lineEdit_Welli_Ri_22 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
         self.lineEdit_Welli_Ri_22.setObjectName("lineEdit_Welli_Ri_22")
         self.gridLayout.addWidget(self.lineEdit_Welli_Ri_22, 7, 5, 1, 1)
         self.scrollArea_Wells_Area.setWidget(self.scrollAreaWidgetContents)
+
+        # # images area
         self.horizontalLayoutWidget = QtWidgets.QWidget(self.centralwidget)
         self.horizontalLayoutWidget.setGeometry(QtCore.QRect(320, 10, 731, 291))
         self.horizontalLayoutWidget.setObjectName("horizontalLayoutWidget")
         self.horizontalLayout_Images = QtWidgets.QHBoxLayout(self.horizontalLayoutWidget)
         self.horizontalLayout_Images.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout_Images.setObjectName("horizontalLayout_Images")
+        # scheme
         self.label_Scheme = QtWidgets.QLabel(self.horizontalLayoutWidget)
         self.label_Scheme.setFrameShape(QtWidgets.QFrame.Box)
         self.label_Scheme.setText("")
@@ -192,6 +251,7 @@ class Ui_MainWindow(object):
         self.label_Scheme.setAlignment(QtCore.Qt.AlignCenter)
         self.label_Scheme.setObjectName("label_Scheme")
         self.horizontalLayout_Images.addWidget(self.label_Scheme)
+        # units
         self.label_Unit_explanation = QtWidgets.QLabel(self.horizontalLayoutWidget)
         self.label_Unit_explanation.setFrameShape(QtWidgets.QFrame.Box)
         self.label_Unit_explanation.setText("")
@@ -199,6 +259,8 @@ class Ui_MainWindow(object):
         self.label_Unit_explanation.setScaledContents(True)
         self.label_Unit_explanation.setObjectName("label_Unit_explanation")
         self.horizontalLayout_Images.addWidget(self.label_Unit_explanation)
+
+        # # add/remove row buttons are
         self.layoutWidget = QtWidgets.QWidget(self.centralwidget)
         self.layoutWidget.setGeometry(QtCore.QRect(1070, 370, 31, 61))
         self.layoutWidget.setObjectName("layoutWidget")
@@ -206,52 +268,66 @@ class Ui_MainWindow(object):
         self.gridLayout_AddRemove_Buttons.setContentsMargins(0, 0, 0, 0)
         self.gridLayout_AddRemove_Buttons.setHorizontalSpacing(0)
         self.gridLayout_AddRemove_Buttons.setObjectName("gridLayout_AddRemove_Buttons")
+        # remove
         self.pushButton_RemoveWell = QtWidgets.QPushButton(self.layoutWidget)
         font = QtGui.QFont()
         font.setPointSize(10)
         font.setBold(True)
         font.setWeight(75)
+
         self.pushButton_RemoveWell.setFont(font)
         self.pushButton_RemoveWell.setStyleSheet("background-color: rgb(138, 138, 138)")
         self.pushButton_RemoveWell.setObjectName("pushButton_RemoveWell")
         self.gridLayout_AddRemove_Buttons.addWidget(self.pushButton_RemoveWell, 1, 0, 1, 1)
+        # add
         self.pushButton_AddWell = QtWidgets.QPushButton(self.layoutWidget)
         font = QtGui.QFont()
         font.setPointSize(10)
         font.setBold(True)
         font.setWeight(75)
+
         self.pushButton_AddWell.setFont(font)
         self.pushButton_AddWell.setStyleSheet("background-color: rgb(226, 226, 226)")
         self.pushButton_AddWell.setObjectName("pushButton_AddWell")
         self.gridLayout_AddRemove_Buttons.addWidget(self.pushButton_AddWell, 0, 0, 1, 1)
+
+        # # action buttons area
         self.layoutWidget1 = QtWidgets.QWidget(self.centralwidget)
         self.layoutWidget1.setGeometry(QtCore.QRect(20, 430, 141, 101))
         self.layoutWidget1.setObjectName("layoutWidget1")
         self.gridLayout_Calculate_Buttons = QtWidgets.QGridLayout(self.layoutWidget1)
         self.gridLayout_Calculate_Buttons.setContentsMargins(0, 0, 0, 0)
         self.gridLayout_Calculate_Buttons.setObjectName("gridLayout_Calculate_Buttons")
+        # calculate
         self.pushButton_Calculate = QtWidgets.QPushButton(self.layoutWidget1)
         font = QtGui.QFont()
         font.setPointSize(10)
         font.setBold(False)
         font.setWeight(50)
+
         self.pushButton_Calculate.setFont(font)
         self.pushButton_Calculate.setObjectName("pushButton_Calculate")
         self.gridLayout_Calculate_Buttons.addWidget(self.pushButton_Calculate, 0, 0, 1, 1)
+        # save
         self.pushButton_SavResults = QtWidgets.QPushButton(self.layoutWidget1)
         font = QtGui.QFont()
         font.setPointSize(10)
         font.setBold(False)
         font.setWeight(50)
+
         self.pushButton_SavResults.setFont(font)
         self.pushButton_SavResults.setObjectName("pushButton_SavResults")
         self.gridLayout_Calculate_Buttons.addWidget(self.pushButton_SavResults, 1, 0, 1, 1)
+
+        # # reservoir
         self.layoutWidget2 = QtWidgets.QWidget(self.centralwidget)
         self.layoutWidget2.setGeometry(QtCore.QRect(210, 350, 311, 161))
         self.layoutWidget2.setObjectName("layoutWidget2")
+        # gird layer
         self.gridLayout_Resv_Layer = QtWidgets.QGridLayout(self.layoutWidget2)
         self.gridLayout_Resv_Layer.setContentsMargins(0, 0, 0, 0)
         self.gridLayout_Resv_Layer.setObjectName("gridLayout_Resv_Layer")
+        # P_e label
         self.label_resvPe = QtWidgets.QLabel(self.layoutWidget2)
         font = QtGui.QFont()
         font.setBold(False)
@@ -261,6 +337,7 @@ class Ui_MainWindow(object):
         self.label_resvPe.setAlignment(QtCore.Qt.AlignCenter)
         self.label_resvPe.setObjectName("label_resvPe")
         self.gridLayout_Resv_Layer.addWidget(self.label_resvPe, 0, 0, 1, 1)
+        # PHI label
         self.label__resvPHI = QtWidgets.QLabel(self.layoutWidget2)
         font = QtGui.QFont()
         font.setBold(False)
@@ -270,6 +347,7 @@ class Ui_MainWindow(object):
         self.label__resvPHI.setAlignment(QtCore.Qt.AlignCenter)
         self.label__resvPHI.setObjectName("label__resvPHI")
         self.gridLayout_Resv_Layer.addWidget(self.label__resvPHI, 0, 1, 1, 1)
+        # r_e label
         self.label__resvRe = QtWidgets.QLabel(self.layoutWidget2)
         font = QtGui.QFont()
         font.setBold(False)
@@ -278,6 +356,7 @@ class Ui_MainWindow(object):
         self.label__resvRe.setFont(font)
         self.label__resvRe.setAlignment(QtCore.Qt.AlignCenter)
         self.label__resvRe.setObjectName("label__resvRe")
+        # H label
         self.gridLayout_Resv_Layer.addWidget(self.label__resvRe, 0, 2, 1, 1)
         self.label__resvH = QtWidgets.QLabel(self.layoutWidget2)
         font = QtGui.QFont()
@@ -287,24 +366,28 @@ class Ui_MainWindow(object):
         self.label__resvH.setFont(font)
         self.label__resvH.setAlignment(QtCore.Qt.AlignCenter)
         self.label__resvH.setObjectName("label__resvH")
+        # input label P_e
         self.gridLayout_Resv_Layer.addWidget(self.label__resvH, 0, 3, 1, 1)
         self.lineEdit_resvPe = QtWidgets.QLineEdit(self.layoutWidget2)
         font = QtGui.QFont()
         font.setPointSize(8)
         self.lineEdit_resvPe.setFont(font)
         self.lineEdit_resvPe.setObjectName("lineEdit_resvPe")
+        # input label PHI
         self.gridLayout_Resv_Layer.addWidget(self.lineEdit_resvPe, 1, 0, 1, 1)
         self.lineEdit_resvPHI = QtWidgets.QLineEdit(self.layoutWidget2)
         font = QtGui.QFont()
         font.setPointSize(8)
         self.lineEdit_resvPHI.setFont(font)
         self.lineEdit_resvPHI.setObjectName("lineEdit_resvPHI")
+        # input label r_e
         self.gridLayout_Resv_Layer.addWidget(self.lineEdit_resvPHI, 1, 1, 1, 1)
         self.lineEdit__resvRe = QtWidgets.QLineEdit(self.layoutWidget2)
         font = QtGui.QFont()
         font.setPointSize(8)
         self.lineEdit__resvRe.setFont(font)
         self.lineEdit__resvRe.setObjectName("lineEdit__resvRe")
+        # input label H
         self.gridLayout_Resv_Layer.addWidget(self.lineEdit__resvRe, 1, 2, 1, 1)
         self.lineEdit__resvH = QtWidgets.QLineEdit(self.layoutWidget2)
         font = QtGui.QFont()
@@ -312,6 +395,7 @@ class Ui_MainWindow(object):
         self.lineEdit__resvH.setFont(font)
         self.lineEdit__resvH.setObjectName("lineEdit__resvH")
         self.gridLayout_Resv_Layer.addWidget(self.lineEdit__resvH, 1, 3, 1, 1)
+        # K_r label
         self.label__resvKr = QtWidgets.QLabel(self.layoutWidget2)
         font = QtGui.QFont()
         font.setBold(False)
@@ -320,6 +404,7 @@ class Ui_MainWindow(object):
         self.label__resvKr.setFont(font)
         self.label__resvKr.setAlignment(QtCore.Qt.AlignCenter)
         self.label__resvKr.setObjectName("label__resvKr")
+        # K_z label
         self.gridLayout_Resv_Layer.addWidget(self.label__resvKr, 2, 0, 1, 1)
         self.label__resvKz = QtWidgets.QLabel(self.layoutWidget2)
         font = QtGui.QFont()
@@ -329,18 +414,21 @@ class Ui_MainWindow(object):
         self.label__resvKz.setFont(font)
         self.label__resvKz.setAlignment(QtCore.Qt.AlignCenter)
         self.label__resvKz.setObjectName("label__resvKz")
+        # input label K_r
         self.gridLayout_Resv_Layer.addWidget(self.label__resvKz, 2, 1, 1, 2)
         self.lineEdit__resvKr = QtWidgets.QLineEdit(self.layoutWidget2)
         font = QtGui.QFont()
         font.setPointSize(8)
         self.lineEdit__resvKr.setFont(font)
         self.lineEdit__resvKr.setObjectName("lineEdit__resvKr")
+        # input label K_z
         self.gridLayout_Resv_Layer.addWidget(self.lineEdit__resvKr, 3, 0, 1, 1)
         self.lineEdit__resvKz = QtWidgets.QLineEdit(self.layoutWidget2)
         font = QtGui.QFont()
         font.setPointSize(8)
         self.lineEdit__resvKz.setFont(font)
         self.lineEdit__resvKz.setObjectName("lineEdit__resvKz")
+        # mu label
         self.gridLayout_Resv_Layer.addWidget(self.lineEdit__resvKz, 3, 1, 1, 2)
         self.label_resvMu = QtWidgets.QLabel(self.layoutWidget2)
         font = QtGui.QFont()
@@ -350,6 +438,7 @@ class Ui_MainWindow(object):
         self.label_resvMu.setFont(font)
         self.label_resvMu.setAlignment(QtCore.Qt.AlignCenter)
         self.label_resvMu.setObjectName("label_resvMu")
+        # B label
         self.gridLayout_Resv_Layer.addWidget(self.label_resvMu, 4, 0, 1, 1)
         self.label_resvB = QtWidgets.QLabel(self.layoutWidget2)
         font = QtGui.QFont()
@@ -359,12 +448,14 @@ class Ui_MainWindow(object):
         self.label_resvB.setFont(font)
         self.label_resvB.setAlignment(QtCore.Qt.AlignCenter)
         self.label_resvB.setObjectName("label_resvB")
+        # input label mu
         self.gridLayout_Resv_Layer.addWidget(self.label_resvB, 4, 1, 1, 2)
         self.lineEdit__resvMu = QtWidgets.QLineEdit(self.layoutWidget2)
         font = QtGui.QFont()
         font.setPointSize(8)
         self.lineEdit__resvMu.setFont(font)
         self.lineEdit__resvMu.setObjectName("lineEdit__resvMu")
+        # input label B
         self.gridLayout_Resv_Layer.addWidget(self.lineEdit__resvMu, 5, 0, 1, 1)
         self.lineEdit__resvB = QtWidgets.QLineEdit(self.layoutWidget2)
         font = QtGui.QFont()
@@ -538,12 +629,79 @@ class Ui_MainWindow(object):
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
 
+        # # by default chose Q_mode
+        self.radioButton_Q.setChecked(True)
+
+        # # setting default values
+        # reservoir properties
+        self.lineEdit_resvPe.setText('18.0')
+        self.lineEdit_resvPHI.setText('50')
+        self.lineEdit__resvRe.setText('2500')
+        self.lineEdit__resvH.setText('20')
+        self.lineEdit__resvKr.setText('0.1')
+        self.lineEdit__resvKz.setText('0.0025')
+        self.lineEdit__resvMu.setText('5.0')
+        self.lineEdit__resvB.setText('1.25')
+        # well's properties
+        # well_1
+        self.lineEdit_Welli_Pwf_2.setText('5.1')
+        self.lineEdit_Welli_Ri_2.setText('300')
+        self.lineEdit_Welli_Phii_2.setText('5')
+        self.lineEdit_Welli_Rw_2.setText('0.1')
+        self.lineEdit_Welli_Skin_2.setText('5')
+        # well_2
+        self.lineEdit_Welli_Pwf_3.setText('5.2')
+        self.lineEdit_Welli_Ri_3.setText('400')
+        self.lineEdit_Welli_Phii_3.setText('10')
+        self.lineEdit_Welli_Rw_3.setText('0.1')
+        self.lineEdit_Welli_Skin_3.setText('5')
+        # well_3
+        self.lineEdit_Welli_Pwf_4.setText('6.4')
+        self.lineEdit_Welli_Ri_4.setText('800')
+        self.lineEdit_Welli_Phii_4.setText('15')
+        self.lineEdit_Welli_Rw_4.setText('0.1')
+        self.lineEdit_Welli_Skin_4.setText('5')
+        # well_4
+        self.lineEdit_Welli_Pwf_5.setText('5.5')
+        self.lineEdit_Welli_Ri_5.setText('1000')
+        self.lineEdit_Welli_Phii_5.setText('20')
+        self.lineEdit_Welli_Rw_5.setText('0.1')
+        self.lineEdit_Welli_Skin_5.setText('5')
+        # well_5
+        self.lineEdit_Welli_Pwf_10.setText('4.8')
+        self.lineEdit_Welli_Ri_10.setText('200')
+        self.lineEdit_Welli_Phii_10.setText('25')
+        self.lineEdit_Welli_Rw_10.setText('0.1')
+        self.lineEdit_Welli_Skin_10.setText('5')
+        # well_6
+        self.lineEdit_Welli_Pwf_11.setText('8.7')
+        self.lineEdit_Welli_Ri_11.setText('1500')
+        self.lineEdit_Welli_Ri_12.setText('30')  # phi_i
+        self.lineEdit_Welli_Ri_13.setText('0.1')  # r_w
+        self.lineEdit_Welli_Ri_18.setText('5')  # skin
+        # well_7
+        self.lineEdit_Welli_Pwf_12.setText('5.8')
+        self.lineEdit_Welli_Ri_15.setText('600')
+        self.lineEdit_Welli_Ri_16.setText('35')  # phi_i
+        self.lineEdit_Welli_Ri_17.setText('0.1')  # r_w
+        self.lineEdit_Welli_Ri_14.setText('5')  # skin
+        # well_8
+        self.lineEdit_Welli_Ri_19.setText('9.3')  # p_wf
+        self.lineEdit_Welli_Pwf_13.setText('2000')  # r_i
+        self.lineEdit_Welli_Ri_20.setText('40')  # phi_i
+        self.lineEdit_Welli_Ri_21.setText('0.1')  # r_w
+        self.lineEdit_Welli_Ri_22.setText('5')  # skin
+
+        # # connect actions to the buttons
+        self.pushButton_Calculate.clicked.connect(self.do_calculation)
+
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
+        window_name = "Steady-State Productivity Equations for a Multiple-Wells System in Sector Fault Reservoirs"
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", window_name))
         self.label_Welli_13.setText(_translate("MainWindow", "Well 7"))
         self.label_Welli_12.setText(_translate("MainWindow", "Well 6"))
         self.label_Welli_2.setText(_translate("MainWindow", "Well 1"))
@@ -585,6 +743,13 @@ class Ui_MainWindow(object):
         self.label_Result.setText(_translate("MainWindow", "Q, m^3/d"))
         self.label_Result_2.setText(_translate("MainWindow", "Q_sum, m^3/d"))
 
+    def do_calculation(self):
+        i = 0
+        for widget in (self.gridLayout.itemAt(i).widget() for i in range(self.gridLayout.count())):
+            if isinstance(widget, QtWidgets.QLineEdit):
+                print(f"linedit: {widget.objectName()}  - {widget.text()} : {i}")
+            i += 1
+        pass
 
 if __name__ == "__main__":
     import sys
