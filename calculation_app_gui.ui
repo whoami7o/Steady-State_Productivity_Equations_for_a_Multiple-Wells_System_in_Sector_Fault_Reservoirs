@@ -242,10 +242,10 @@
    <widget class="QWidget" name="horizontalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>320</x>
-      <y>10</y>
-      <width>731</width>
-      <height>291</height>
+      <x>310</x>
+      <y>20</y>
+      <width>681</width>
+      <height>271</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout_Images">
@@ -288,8 +288,8 @@
      <rect>
       <x>1070</x>
       <y>370</y>
-      <width>31</width>
-      <height>61</height>
+      <width>21</width>
+      <height>51</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout_AddRemove_Buttons">
@@ -937,6 +937,54 @@
       <width>91</width>
       <height>22</height>
      </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_Excel">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>60</y>
+      <width>171</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Calculate from Excel file</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_2">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>30</y>
+      <width>171</width>
+      <height>21</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>10</y>
+      <width>171</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+      <underline>true</underline>
+     </font>
+    </property>
+    <property name="text">
+     <string>PATH to Excel file</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
   </widget>
