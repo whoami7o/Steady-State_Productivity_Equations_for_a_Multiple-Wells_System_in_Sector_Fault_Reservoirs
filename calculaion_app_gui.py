@@ -795,8 +795,12 @@ class Ui_MainWindow(object):
 
     def do_calculation(self):
         # # data collecting
-        self.well_input = self._well_data_prep()
-        self.reservoir_input = self._reservoir_data_prep()
+        try:
+            self.well_input = self._well_data_prep()
+            self.reservoir_input = self._reservoir_data_prep()
+        except ValueError:
+            print('Wrong input data')
+            return None
 
         # # calculations
         if self.radioButton_S.isChecked():
@@ -848,6 +852,7 @@ class Ui_MainWindow(object):
 
             save_file.to_excel('manual_save_test.xlsx', index=False, header=False)
         except AttributeError:
+            print('You have nothing to save')
             pass
 
     def _well_data_prep(self):
