@@ -10,6 +10,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 import ssp_eq_mws_sfr as sspeq
+import pandas as pd
 
 
 class Ui_MainWindow(object):
@@ -630,7 +631,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidget(self.scrollAreaWidgetContents_2)
         # result label
         self.label_Result = QtWidgets.QLabel(self.centralwidget)
-        self.label_Result.setGeometry(QtCore.QRect(64, 140, 71, 20))
+        self.label_Result.setGeometry(QtCore.QRect(64, 140, 90, 20))
         self.label_Result.setAlignment(QtCore.Qt.AlignCenter)
         self.label_Result.setObjectName("label_Result")
 
@@ -642,6 +643,25 @@ class Ui_MainWindow(object):
         self.lineEdit = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit.setGeometry(QtCore.QRect(190, 160, 91, 22))
         self.lineEdit.setObjectName("lineEdit")
+
+        # excel buttons
+        self.pushButton_Excel = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_Excel.setGeometry(QtCore.QRect(130, 60, 171, 31))
+        self.pushButton_Excel.setObjectName("pushButton_Excel")
+        self.lineEdit_2 = QtWidgets.QLineEdit(self.centralwidget)
+        self.lineEdit_2.setGeometry(QtCore.QRect(130, 30, 171, 21))
+        self.lineEdit_2.setObjectName("lineEdit_2")
+        self.label = QtWidgets.QLabel(self.centralwidget)
+        self.label.setGeometry(QtCore.QRect(130, 10, 171, 16))
+        font = QtGui.QFont()
+        font.setPointSize(9)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setUnderline(True)
+        font.setWeight(50)
+        self.label.setFont(font)
+        self.label.setAlignment(QtCore.Qt.AlignCenter)
+        self.label.setObjectName("label")
 
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
@@ -714,6 +734,8 @@ class Ui_MainWindow(object):
 
         # # connect actions to the buttons
         self.pushButton_Calculate.clicked.connect(self.do_calculation)
+        self.pushButton_Excel.clicked.connect(self.manage_excel)
+        self.pushButton_SavResults.clicked.connect(self.save_results)
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
@@ -768,15 +790,18 @@ class Ui_MainWindow(object):
         self.label_Welli_result1_8.setText(_translate("MainWindow", "Well 8"))
         self.label_Result.setText(_translate("MainWindow", "Q, m^3/d"))
         self.label_Result_2.setText(_translate("MainWindow", "Q_sum, m^3/d"))
+        self.pushButton_Excel.setText(_translate("MainWindow", "Calculate from Excel file"))
+        self.label.setText(_translate("MainWindow", "PATH to Excel file"))
 
     def do_calculation(self):
         # # data collecting
-        well_input = self._well_data_prep()
-        reservoir_input = self._reservoir_data_prep()
+        self.well_input = self._well_data_prep()
+        self.reservoir_input = self._reservoir_data_prep()
 
         # # calculations
         if self.radioButton_S.isChecked():
-            skinlist = sspeq.find_s(well_input, reservoir_input)
+            skinlist = sspeq.find_s(self.well_input, self.reservoir_input)
+            self.skin_solution = skinlist[:]
             # # show results
             # well skin
             for widget in (self.gridLayout_2.itemAt(i).widget() for i in
@@ -785,8 +810,10 @@ class Ui_MainWindow(object):
                     widget.setText(str(round(skinlist.pop(0), 2)))
 
         elif self.radioButton_Q.isChecked():
-            sumrate, ratelist = sspeq.find_q(well_input, reservoir_input)
-            # # show results
+            sumrate, ratelist = sspeq.find_q(self.well_input, self.reservoir_input)
+            self.sumrate_solution = sumrate
+            self.rate_solution = ratelist[:]
+                # # show results
             # sum rate
             self.lineEdit.setText(str(round(sumrate, 2)))
             # well rate
@@ -794,6 +821,34 @@ class Ui_MainWindow(object):
                            range(self.gridLayout_2.count())):
                 if isinstance(widget, QtWidgets.QLineEdit):
                     widget.setText(str(round(ratelist.pop(0), 2)))
+
+    def save_results(self):
+        save_file = pd.DataFrame()
+        # for find_S
+        # print(self.well_input)
+        mode_marker = 'skin' if self.radioButton_Q.isChecked() else 'Q' if self.radioButton_S.isChecked() else 'Err'
+        try:
+            well_input_df = pd.DataFrame([['p_wf', 'r_i', 'phi_i', 'r_w', f'{mode_marker}'], *self.well_input])
+            resv_input_df = pd.DataFrame([('p_e', 'r_e', 'PHI', 'h', 'k_r', 'k_z', 'mu', 'B'), self.reservoir_input]
+                                         )
+            combo = pd.concat([pd.DataFrame(['WELL']), well_input_df, pd.DataFrame(['RESV']), resv_input_df])
+            input_save = pd.concat([pd.DataFrame(['CASE MANUAL', 'INPUT']), combo])
+
+            if self.radioButton_Q.isChecked():
+                well_numeration = [f'well {i + 1}' for i in range(len(self.rate_solution))] + ['SUM']
+                q_vec = self.rate_solution + [self.sumrate_solution]
+            else:
+                well_numeration = [f'well {i + 1}' for i in range(len(self.rate_solution))]
+                q_vec = self.rate_solution
+
+            solution = pd.concat([pd.DataFrame(['', f'{"Q (rate)" if self.radioButton_Q.isChecked() else "SKIN"}']),
+                                  pd.DataFrame([well_numeration, q_vec])])
+
+            save_file = pd.concat([save_file, input_save, solution])
+
+            save_file.to_excel('manual_save_test.xlsx', index=False, header=False)
+        except AttributeError:
+            pass
 
     def _well_data_prep(self):
         # collect well info
@@ -846,13 +901,81 @@ class Ui_MainWindow(object):
         reservoir_input = tuple(reservoir_input)
         return reservoir_input
 
-    def change_mode_to_s(self):
-        self.label_Result.setText('Skin-factor')
+    def manage_excel(self):
+        file_path = repr(self.lineEdit_2.text()).replace("'", '').replace('"', '')
+        try:
+            input_file = pd.read_excel(file_path, header=None)
+        except TypeError:
+            print('No such directory')
+            return None
+        except FileNotFoundError:
+            print('No such file')
+            return None
 
+        start_i, end_i = self._get_case_bound(input_file)
+
+        output_file = pd.DataFrame()
+
+        for i in range(len(start_i)):
+            case_i = input_file.iloc[[_ for _ in range(start_i[i] + 1, end_i[i])]].reset_index(drop=True)
+
+            resv_i, wells_i, mode = self._split_properties(case_i)
+            if mode == 'SKIN':
+                q_sum, q = sspeq.find_q(wells_i, *resv_i)
+                # print(f'CASE {i}\t{mode} is known\nQ_sum : {q_sum: .3f}\nQ_vec : {[round(_, 2) for _ in q]}')
+                well_numeration = [f'well {i + 1}' for i in range(len(q))] + ['SUM']
+                q_vec = q + [q_sum]
+                solution = pd.concat([pd.DataFrame([f'CASE {i}', 'Q (rate)']), pd.DataFrame([well_numeration, q_vec])])
+
+                output_file = pd.concat([output_file, solution])
+
+            elif mode == 'Q':
+                s_vec = sspeq.find_s(wells_i, *resv_i)
+                # print(f'CASE {i}\t{mode} is known\nS_vec : {[round(_, 2) for _ in s_vec]}')
+                well_numeration = [f'well {i + 1}' for i in range(len(s_vec))]
+                solution = pd.concat([pd.DataFrame([f'CASE {i}', 'SKIN']), pd.DataFrame([well_numeration, s_vec])])
+
+                output_file = pd.concat([output_file, solution])
+
+            else:
+                pass
+
+        output_file.to_excel('solution_test.xlsx', index=False, header=False)
+
+    def _get_case_bound(self, dataframe):
+        start = dataframe.index[dataframe[0] == 'START'].to_list()
+        end = dataframe.index[dataframe[0] == 'END'].to_list()
+        return start, end
+
+    def _split_properties(self, dataframe):
+        # boundaries
+        resv_bound1 = int(dataframe.index[dataframe[0] == 'RESV'].to_list()[0])
+        resv_bound2 = int(dataframe.index[dataframe[0] == 'WELL'].to_list()[0])
+        # slicing
+        resv_prop = dataframe.iloc[[_ for _ in range(resv_bound1 + 1, resv_bound2)]].reset_index(drop=True)
+        well_prop = dataframe.iloc[resv_bound2 + 1:].reset_index(drop=True)
+        # finishing
+        resv_prop.columns = resv_prop.iloc[0]
+        resv_prop = resv_prop[1:]
+
+        mode_marker = well_prop.iloc[0].to_list()[5].upper()
+
+        well_prop.columns = well_prop.iloc[0]
+        well_prop = well_prop[1:].dropna(axis=1).drop(columns='index')
+
+        return resv_prop.values.tolist(), well_prop.values.tolist(), mode_marker
+
+    def change_mode_to_s(self):
+        self.label_Result_2.hide()
+        self.lineEdit.hide()
+        self.label_Result.setText('Skin - factor')
+        self.label__Well_Skin.setText('q, m^3/d')
 
     def change_mode_to_q(self):
         self.label_Result.setText('Q_sum, m^3/d')
-        self.label_Result_2.setText('Q_sum, m^3/d')
+        self.label__Well_Skin.setText('skin')
+        self.label_Result_2.show()
+        self.lineEdit.show()
 
 if __name__ == "__main__":
     import sys
