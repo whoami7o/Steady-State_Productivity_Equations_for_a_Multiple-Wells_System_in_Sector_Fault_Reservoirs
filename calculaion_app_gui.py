@@ -805,28 +805,31 @@ class Ui_MainWindow(object):
             return None
 
         # # calculations
-        if self.radioButton_S.isChecked():
-            skinlist = sspeq.find_s(self.well_input, self.reservoir_input)
-            self.skin_solution = skinlist[:]
-            # # show results
-            # well skin
-            for widget in (self.gridLayout_2.itemAt(i).widget() for i in
-                           range(self.gridLayout_2.count())):
-                if isinstance(widget, QtWidgets.QLineEdit):
-                    widget.setText(str(round(skinlist.pop(0), 2)))
-
-        elif self.radioButton_Q.isChecked():
-            sumrate, ratelist = sspeq.find_q(self.well_input, self.reservoir_input)
-            self.sumrate_solution = sumrate
-            self.rate_solution = ratelist[:]
+        try:
+            if self.radioButton_S.isChecked():
+                skinlist = sspeq.find_s(self.well_input, self.reservoir_input)
+                self.skin_solution = skinlist[:]
                 # # show results
-            # sum rate
-            self.lineEdit.setText(str(round(sumrate, 2)))
-            # well rate
-            for widget in (self.gridLayout_2.itemAt(i).widget() for i in
-                           range(self.gridLayout_2.count())):
-                if isinstance(widget, QtWidgets.QLineEdit):
-                    widget.setText(str(round(ratelist.pop(0), 2)))
+                # well skin
+                for widget in (self.gridLayout_2.itemAt(i).widget() for i in
+                               range(self.gridLayout_2.count())):
+                    if isinstance(widget, QtWidgets.QLineEdit):
+                        widget.setText(str(round(skinlist.pop(0), 2)))
+
+            elif self.radioButton_Q.isChecked():
+                sumrate, ratelist = sspeq.find_q(self.well_input, self.reservoir_input)
+                self.sumrate_solution = sumrate
+                self.rate_solution = ratelist[:]
+                # # show results
+                # sum rate
+                self.lineEdit.setText(str(round(sumrate, 2)))
+                # well rate
+                for widget in (self.gridLayout_2.itemAt(i).widget() for i in
+                               range(self.gridLayout_2.count())):
+                    if isinstance(widget, QtWidgets.QLineEdit):
+                        widget.setText(str(round(ratelist.pop(0), 2)))
+        except (ValueError, ZeroDivisionError):
+            print('Wrong input values (for example : division by 0)')
 
     def save_results(self):
         save_file = pd.DataFrame()
