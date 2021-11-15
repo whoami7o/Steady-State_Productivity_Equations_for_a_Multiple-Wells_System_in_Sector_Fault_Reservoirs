@@ -748,8 +748,6 @@ class Ui_MainWindow(object):
         self.radioButton_S.toggled.connect(self.change_mode_to_s)
         self.radioButton_Q.toggled.connect(self.change_mode_to_q)
 
-        self.remove_count = 0
-
     def retranslateUi(self, MainWindow):
         window_name = "Steady-State Productivity Equations for a Multiple-Wells System in Sector Fault Reservoirs"
         _translate = QtCore.QCoreApplication.translate
@@ -987,59 +985,74 @@ class Ui_MainWindow(object):
         self.lineEdit.show()
 
     def add_well(self):
+        for row in reversed(range(self.gridLayout.rowCount())):
+            if self.gridLayout.itemAtPosition(row, 0) is None:
+                pass
+
+            else:
+                self._add_row(row + 1)
+                break
+
+            if row == 0:
+                self._add_row(row)
+                break
+
+    def remove_well(self):
+        for row in reversed(range(self.gridLayout.rowCount())):
+            if self.gridLayout.itemAtPosition(row, 0) is None:
+                pass
+            else:
+                self._delete_row(row)
+                break
+
+    def _add_row(self, row_index):
         # # adding to input scroll area
         # add well label
         self.label_Welli_i = QtWidgets.QLabel(self.scrollAreaWidgetContents)
         self.label_Welli_i.setAlignment(QtCore.Qt.AlignCenter)
-        self.gridLayout.addWidget(self.label_Welli_i, self.gridLayout.rowCount(), 0, 1, 1)
-        self.label_Welli_i.setText(f'Well {self.gridLayout.rowCount()}')
-        self.label_Welli_i.setObjectName(f"label_Welli_{self.gridLayout.rowCount()}")
+        self.gridLayout.addWidget(self.label_Welli_i, row_index, 0, 1, 1)
+        self.label_Welli_i.setText(f'Well {row_index+1}')
+        self.label_Welli_i.setObjectName(f"label_Welli_{row_index}")
 
         # add p_wf line edit
         self.lineEdit_Welli_Pwf_i = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
-        self.lineEdit_Welli_Pwf_i.setObjectName(f"lineEdit_Welli_Pwf_{self.gridLayout.rowCount()}")
-        self.gridLayout.addWidget(self.lineEdit_Welli_Pwf_i, self.gridLayout.rowCount()-1, 1, 1, 1)
+        self.lineEdit_Welli_Pwf_i.setObjectName(f"lineEdit_Welli_Pwf_{row_index+1}")
+        self.gridLayout.addWidget(self.lineEdit_Welli_Pwf_i, row_index, 1, 1, 1)
         # add r_i line edit
         self.lineEdit_Welli_Ri_i = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
-        self.lineEdit_Welli_Ri_i.setObjectName(f"lineEdit_Welli_Ri_{self.gridLayout.rowCount()}")
-        self.gridLayout.addWidget(self.lineEdit_Welli_Ri_i, self.gridLayout.rowCount()-1, 2, 1, 1)
+        self.lineEdit_Welli_Ri_i.setObjectName(f"lineEdit_Welli_Ri_{row_index+1}")
+        self.gridLayout.addWidget(self.lineEdit_Welli_Ri_i, row_index, 2, 1, 1)
         # add phi_i line edit
         self.lineEdit_Welli_Phii_i = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
-        self.lineEdit_Welli_Phii_i.setObjectName(f"lineEdit_Welli_Phii_{self.gridLayout.rowCount()}")
-        self.gridLayout.addWidget(self.lineEdit_Welli_Phii_i, self.gridLayout.rowCount()-1, 3, 1, 1)
+        self.lineEdit_Welli_Phii_i.setObjectName(f"lineEdit_Welli_Phii_{row_index+1}")
+        self.gridLayout.addWidget(self.lineEdit_Welli_Phii_i, row_index, 3, 1, 1)
         # add r_w line edit
         self.lineEdit_Welli_Rw_i = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
-        self.lineEdit_Welli_Rw_i.setObjectName(f"lineEdit_Welli_Rw_{self.gridLayout.rowCount()}")
-        self.gridLayout.addWidget(self.lineEdit_Welli_Rw_i, self.gridLayout.rowCount()-1, 4, 1, 1)
+        self.lineEdit_Welli_Rw_i.setObjectName(f"lineEdit_Welli_Rw_{row_index+1}")
+        self.gridLayout.addWidget(self.lineEdit_Welli_Rw_i, row_index, 4, 1, 1)
         # add skin_i line edit
         self.lineEdit_Welli_Skin_i = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
-        self.lineEdit_Welli_Skin_i.setObjectName(f"lineEdit_Welli_Skin_{self.gridLayout.rowCount()}")
-        self.gridLayout.addWidget(self.lineEdit_Welli_Skin_i, self.gridLayout.rowCount()-1, 5, 1, 1)
+        self.lineEdit_Welli_Skin_i.setObjectName(f"lineEdit_Welli_Skin_{row_index+1}")
+        self.gridLayout.addWidget(self.lineEdit_Welli_Skin_i, row_index, 5, 1, 1)
 
         # # adding to output scroll area
         # label-lineedit pair for well_i
         self.label_Welli_result1_i = QtWidgets.QLabel(self.scrollAreaWidgetContents_2)
         self.label_Welli_result1_i.setAlignment(QtCore.Qt.AlignCenter)
-        self.gridLayout_2.addWidget(self.label_Welli_result1_i, self.gridLayout_2.rowCount(), 0, 1, 1)
-        self.label_Welli_result1_i.setText(f'Well {self.gridLayout.rowCount()}')
-        self.label_Welli_result1_i.setObjectName(f"label_Welli_result1_{self.gridLayout_2.rowCount()}")
+        self.gridLayout_2.addWidget(self.label_Welli_result1_i, row_index, 0, 1, 1)
+        self.label_Welli_result1_i.setText(f'Well {row_index+1}')
+        self.label_Welli_result1_i.setObjectName(f"label_Welli_result1_{row_index+1}")
 
         self.lineEdit_Welli_result1_i = QtWidgets.QLineEdit(self.scrollAreaWidgetContents_2)
-        self.lineEdit_Welli_result1_i.setObjectName(f"lineEdit_Welli_result1_{self.gridLayout_2.rowCount()}")
-        self.gridLayout_2.addWidget(self.lineEdit_Welli_result1_i, self.gridLayout_2.rowCount()-1, 1, 1, 1)
+        self.lineEdit_Welli_result1_i.setObjectName(f"lineEdit_Welli_result1_{row_index+1}")
+        self.gridLayout_2.addWidget(self.lineEdit_Welli_result1_i, row_index, 1, 1, 1)
 
-        self.remove_count -= 1
-
-    def remove_well(self):
-        self.remove_count += 1
-
+    def _delete_row(self, row_index):
         for column in range(self.gridLayout.columnCount()):
-            self.gridLayout.itemAtPosition(self.gridLayout.rowCount() -self.remove_count, column).widget().deleteLater()
+            self.gridLayout.itemAtPosition(row_index, column).widget().deleteLater()
 
         for column in range(self.gridLayout_2.columnCount()):
-            self.gridLayout_2.itemAtPosition(self.gridLayout_2.rowCount()-self.remove_count, column).widget().deleteLater()
-
-
+            self.gridLayout_2.itemAtPosition(row_index, column).widget().deleteLater()
 
 
 if __name__ == "__main__":
