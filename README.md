@@ -1,5 +1,5 @@
 # Steady-State Productivity Equations for a Multiple-Wells System in Sector Fault Reservoirs
-This module created for use of findings presented in the following SPE article published by *"Jing Lu, Shawket Ghedan, and Tao Zhu, The Petroleum Institute; and Anh Dinh, Schlumberger; and Djebbar Tiab, University of Oklahoma"*.
+This module was created for use of findings presented in the following SPE article published by *"Jing Lu, Shawket Ghedan, and Tao Zhu, The Petroleum Institute; and Anh Dinh, Schlumberger; and Djebbar Tiab, University of Oklahoma"*.
 For questions regarding to equations, their implementation or calc. procedure or more detailed information please refer to the article (it can be found in repository).
 ## Function library 
 - **ssp_eq_mws_sfr.py**
@@ -17,7 +17,7 @@ By default all cells are filled with values for **"Example One, *Case 1*"** as i
 - **Save results** - creates Excel *'manual_save_test.xlsx'* file with all your entered and calculated parameters in the same directory where script was deployed;
 - **Calculate from excel** - runs *'cmd_only_excel_mode.py'* functionality and saves results in *'output_solution_example.xlsx'* in the same directory where script was deployed.
 ### Errors
-All common errors  were catched preventing app from crashing. So, when one of them occurs the following self-explanatory message prints out in the console.
+All common errors  were caught preventing app from crashing. So, when one of them occurs the following self-explanatory message prints out in the console.
 ### Variables explanation
 - $P_e$ (P_e) – reservoir outer-boundary pressure, $MPa$;
 - $Φ$ (PHI) – angle of the sector reservoir, *boundaries* : $[0, 360]$, $° (deg)$;
